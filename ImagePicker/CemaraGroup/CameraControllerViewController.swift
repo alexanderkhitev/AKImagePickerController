@@ -568,6 +568,13 @@ extension CameraControllerViewController {
             debugPrint("portrait")
         case .landscapeLeft:
             debugPrint("landscapeLeft")
+            if widthValue > heightValue {
+                width = heightValue
+            } else {
+                width = widthValue
+            }
+            X = 0
+            Y = 0
         case .landscapeRight:
             debugPrint("landscapeRight")
             if widthValue > heightValue {
@@ -619,7 +626,7 @@ extension CameraControllerViewController {
     @objc fileprivate func dismissAction() {
 //        hideAnimation()
         
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] (timer) in
+        Timer.scheduledTimer(withTimeInterval: 0, repeats: false) { [weak self] (timer) in
             self?.dismiss(animated: false, completion: nil)
         }
     }
