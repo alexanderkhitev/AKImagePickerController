@@ -493,7 +493,9 @@ extension CameraControllerViewController {
                 ?   accelerometerData!.acceleration.x > 0 ? CurrentOrientation.landscapeRight  :   CurrentOrientation.landscapeLeft
                 :   accelerometerData!.acceleration.y > 0 ? CurrentOrientation.portraitUpsideDown   :   CurrentOrientation.portrait
             
+            
             DispatchQueue.main.async {
+                self?.launchDismissActions()
                 self?.hideAnimation(currentOrientation)
             }
             self?.coreMotionManager.stopAccelerometerUpdates()
@@ -627,11 +629,13 @@ extension CameraControllerViewController {
     @objc fileprivate func dismissAction() {
         cameraSlider.isHidden = true
         detectHideOrientation()
-        
-        Timer.scheduledTimer(withTimeInterval: hideDurationTime - 0.17, repeats: false) { [weak self] (timer) in
+    }
+    
+    fileprivate func launchDismissActions() {
+        Timer.scheduledTimer(withTimeInterval: hideDurationTime - 0.3, repeats: false) { [weak self] (timer) in
             self?.delegate?.willHide?()
             
-            Timer.scheduledTimer(withTimeInterval: 0.17, repeats: false, block: { (timer) in
+            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { (timer) in
                 self?.dismiss(animated: false, completion: nil)
             })
         }
