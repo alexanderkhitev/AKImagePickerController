@@ -582,14 +582,9 @@ extension CameraControllerViewController {
             debugPrint("default portrait")
         }
         
-//        height += 1
-        
         debugPrint("X", X, "Y", Y, "width", width, "height", height)
 
         cameraEngine.previewLayer.frame = CGRect(x: X, y: Y, width: width, height: height)
-        
-//        cameraEngine.previewLayer.backgroundColor = UIColor.red.cgColor
-        
         cameraPreviewView.layer.addSublayer(cameraEngine.previewLayer)
     }
     
@@ -609,18 +604,10 @@ extension CameraControllerViewController {
             setupHeightValue = widthValue - 44 - 96
         }
         
-//        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (t) in
-            CATransaction.begin()
-            CATransaction.setAnimationDuration(0.7)
-            self.cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
-            CATransaction.commit()
-
-//        }
-        
-//        CATransaction.begin()
-//        CATransaction.setAnimationDuration(0.7)
-//        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
-//        CATransaction.commit()
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.5)
+        self.cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+        CATransaction.commit()
     }
     
 }
