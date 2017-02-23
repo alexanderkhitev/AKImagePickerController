@@ -61,6 +61,10 @@ class CameraControllerViewController: UIViewController {
         case portrait, portraitUpsideDown, landscapeRight, landscapeLeft
     }
     
+    // MARK: - Delegate
+    
+    weak var delegate: CameraControllerViewControllerDelegate?
+    
     // MARK: - Hidding data
     
     fileprivate var hideDurationTime = 0.5
@@ -622,6 +626,11 @@ extension CameraControllerViewController {
     
     @objc fileprivate func dismissAction() {
         detectHideOrientation()
+        
+        Timer.scheduledTimer(withTimeInterval: hideDurationTime - (hideDurationTime - 2), repeats: false) { [weak self] (timer) in
+            self?.delegate?.willHide?()
+        }
+        
         Timer.scheduledTimer(withTimeInterval: hideDurationTime, repeats: false) { [weak self] (timer) in
             self?.dismiss(animated: false, completion: nil)
         }

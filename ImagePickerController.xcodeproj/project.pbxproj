@@ -45,6 +45,7 @@
 		A602BC0E1E5EE223003713E9 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */; };
 		A6BA27DE1E5EE3F400A61627 /* ImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; };
 		A6BA27DF1E5EE3F400A61627 /* ImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6BA27E41E5F34B300A61627 /* CameraControllerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		A602BC091E5EE223003713E9 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerAction.swift; sourceTree = "<group>"; };
 		A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControllerViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */,
 				A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */,
 				A602BBB11E5EDA53003713E9 /* CameraSliderDelegate.swift */,
+				A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */,
 			);
 			path = CemaraGroup;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				A602BBC61E5EDAA4003713E9 /* CameraEngineVideoEncoder.swift in Sources */,
 				A602BBCE1E5EDAFF003713E9 /* SheetActionCollectionViewCell.swift in Sources */,
 				A602BBE41E5EDB69003713E9 /* PreviewSupplementaryView.swift in Sources */,
+				A6BA27E41E5F34B300A61627 /* CameraControllerViewControllerDelegate.swift in Sources */,
 				A602BBD11E5EDAFF003713E9 /* SheetController.swift in Sources */,
 				A602BBBF1E5EDAA4003713E9 /* CameraEngine.swift in Sources */,
 				A602BBD01E5EDAFF003713E9 /* SheetCollectionViewLayout.swift in Sources */,

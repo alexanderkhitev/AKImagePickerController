@@ -179,10 +179,6 @@ open class ImagePickerController: UIViewController {
         } else {
             // for camera
         }
-        
-        if isCameraControllerPreseneted {
-            returnCameraLayerToCell()
-        }
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -424,6 +420,7 @@ extension ImagePickerController {
     
     fileprivate func presentCameraController() {
         let cameraController = CameraControllerViewController()
+        cameraController.delegate = self 
         cameraController.cameraEngine = cameraEngine
         cameraController.startOrientation = UIDevice.current.orientation
         cameraEngine.previewLayer.connection.videoOrientation = .portrait// AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
@@ -467,6 +464,16 @@ extension ImagePickerController {
         guard let cameraLiveCell = previewPhotoCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? ImagePickerLiveCameraCollectionCell else { return }
         
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - Delegate
+
+extension ImagePickerController: CameraControllerViewControllerDelegate {
+    
+    func willHide() {
+        returnCameraLayerToCell()
     }
     
 }
