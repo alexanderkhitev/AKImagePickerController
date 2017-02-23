@@ -628,10 +628,10 @@ extension CameraControllerViewController {
         cameraSlider.isHidden = true
         detectHideOrientation()
         
-        Timer.scheduledTimer(withTimeInterval: hideDurationTime - 0.15, repeats: false) { [weak self] (timer) in
+        Timer.scheduledTimer(withTimeInterval: hideDurationTime - 0.17, repeats: false) { [weak self] (timer) in
             self?.delegate?.willHide?()
             
-            Timer.scheduledTimer(withTimeInterval: 0.15, repeats: false, block: { (timer) in
+            Timer.scheduledTimer(withTimeInterval: 0.17, repeats: false, block: { (timer) in
                 self?.dismiss(animated: false, completion: nil)
             })
         }

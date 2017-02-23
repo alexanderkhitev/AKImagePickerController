@@ -442,28 +442,9 @@ extension ImagePickerController {
             // return to standard cell behavior
             cameraEngine.changeCurrentDevice(.front)
             cameraEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
-
-            
-            if let sublayers = cameraLiveCell.containerView.layer.sublayers {
-                for sublayer in sublayers {
-                    if sublayer.isKind(of: AVCaptureVideoPreviewLayer.self) {
-                        sublayer.removeFromSuperlayer()
-                    }
-                }
-            }
             
             cameraLiveCell.containerView.layer.insertSublayer(cameraEngine.previewLayer, at: 1)
         }
-    }
-    
-    fileprivate func presentImagePicker() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
-        imagePicker.cameraDevice = .front
-        
-        guard let cameraLiveCell = previewPhotoCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? ImagePickerLiveCameraCollectionCell else { return }
-        
-        present(imagePicker, animated: true, completion: nil)
     }
     
 }
