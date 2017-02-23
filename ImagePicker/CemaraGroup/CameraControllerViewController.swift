@@ -44,8 +44,8 @@ class CameraControllerViewController: UIViewController {
     // MARK: - Images
     
     fileprivate struct FlashImage {
-        let turnedOn = UIImage(named: "FlashTurnedOn", in: Bundle(identifier: "com.SCImagePickerSheetController"), compatibleWith: nil)
-        let turnedOff = UIImage(named: "FlashTurnedOff", in: Bundle(identifier: "com.SCImagePickerSheetController"), compatibleWith: nil)
+        let turnedOn = UIImage(named: "FlashTurnedOn", in: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"), compatibleWith: nil)
+        let turnedOff = UIImage(named: "FlashTurnedOff", in: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"), compatibleWith: nil)
     }
     
     // MARK: - Lifecycle
@@ -296,7 +296,7 @@ class CameraControllerViewController: UIViewController {
     }
     
     private func setupButtonsSettings() {
-        let bundle = Bundle(identifier: "com.SCImagePickerSheetController")
+        let bundle = Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker")
         let shotImage = UIImage(named: "ShotCameraIcon", in: bundle, compatibleWith: nil)
         shotButton.setImage(shotImage, for: .normal)
         

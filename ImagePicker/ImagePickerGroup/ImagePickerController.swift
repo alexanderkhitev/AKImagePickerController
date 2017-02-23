@@ -312,9 +312,9 @@ extension ImagePickerController {
     
     private func registerCollectionViewElements() {
         // cells
-        let photoNib = UINib(nibName: "ImagePickerCollectionCell", bundle: Bundle(identifier: "com.SCImagePickerSheetController"))
+        let photoNib = UINib(nibName: "ImagePickerCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"))
         previewPhotoCollectionView.register(photoNib, forCellWithReuseIdentifier: imagePickerCollectionCellIdentifier)
-        let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "com.SCImagePickerSheetController"))
+        let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"))
         previewPhotoCollectionView.register(liveNib, forCellWithReuseIdentifier: imagePickerLiveCameraCollectionCellIdentifier)
     }
     
