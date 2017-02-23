@@ -263,7 +263,28 @@ class CameraControllerViewController: UIViewController {
         
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.5)
-        self.cameraLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+        cameraLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+        CATransaction.commit()
+    }
+    
+    fileprivate func hideAnimation() {
+        let widthValue = UIScreen.main.bounds.width
+        let heightValue = UIScreen.main.bounds.height
+        
+        var setupWidthValue: CGFloat!
+        var setupHeightValue: CGFloat!
+        
+        if widthValue < heightValue {
+            setupWidthValue = widthValue
+            setupHeightValue = heightValue - 44 - 96
+        } else {
+            setupWidthValue = heightValue
+            setupHeightValue = widthValue - 44 - 96
+        }
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.5)
+        cameraLayer.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         CATransaction.commit()
     }
     
@@ -509,7 +530,6 @@ extension CameraControllerViewController {
 extension CameraControllerViewController: CameraSliderDelegate {
     
     func didChangeValue(_ value: CGFloat) {
-        debugPrint("CameraSliderDelegate", value)
         cameraEngine.cameraZoomFactor = value
     }
     
@@ -520,8 +540,11 @@ extension CameraControllerViewController: CameraSliderDelegate {
 extension CameraControllerViewController {
     
     @objc fileprivate func dismissAction() {
-        // animation
-        dismiss(animated: false, completion: nil)
+        hideAnimation()
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] (timer) in
+            self?.dismiss(animated: false, completion: nil)
+        }
     }
     
 }

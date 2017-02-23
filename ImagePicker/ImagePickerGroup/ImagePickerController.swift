@@ -460,6 +460,10 @@ extension ImagePickerController {
             cameraEngine.rotationCamera = true
             cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 95, height: 95)
             
+            // return to standard cell behavior
+            cameraEngine.changeCurrentDevice(.front)
+            cameraEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
+
             
             if let sublayers = cameraLiveCell.containerView.layer.sublayers {
                 for sublayer in sublayers {
@@ -479,7 +483,6 @@ extension ImagePickerController {
         imagePicker.cameraDevice = .front
         
         guard let cameraLiveCell = previewPhotoCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? ImagePickerLiveCameraCollectionCell else { return }
-        let heroID = "LiveHero"        
         
         present(imagePicker, animated: true, completion: nil)
     }
