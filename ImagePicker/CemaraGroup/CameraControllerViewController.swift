@@ -34,7 +34,7 @@ class CameraControllerViewController: UIViewController {
     
     // MARK: - Camera
     
-    var cameraLayer = AVCaptureVideoPreviewLayer()
+//    var cameraLayer = AVCaptureVideoPreviewLayer()
     var cameraEngine: CameraEngine!
     
     // MARK: - Flags
@@ -68,8 +68,7 @@ class CameraControllerViewController: UIViewController {
         setupUISettings()
         addUIElements()
         /// orienation
-        detectStartOrientation()
-        addCameraLayer()
+        detectStartCameraLayerPositions()
         setupViewsSettings()
         // Buttons
         setupButtonsSettings()
@@ -240,26 +239,6 @@ class CameraControllerViewController: UIViewController {
     
     // MARK: - Animation
     
-    private func animateCameraView() {
-        let widthValue = UIScreen.main.bounds.width
-        let heightValue = UIScreen.main.bounds.height
-        
-        var setupWidthValue: CGFloat!
-        var setupHeightValue: CGFloat!
-        
-        if widthValue < heightValue {
-            setupWidthValue = widthValue
-            setupHeightValue = heightValue - 44 - 96
-        } else {
-            setupWidthValue = heightValue
-            setupHeightValue = widthValue - 44 - 96
-        }
-        
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(0.5)
-        cameraLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
-        CATransaction.commit()
-    }
     
     fileprivate func hideAnimation() {
         let widthValue = UIScreen.main.bounds.width
@@ -278,7 +257,7 @@ class CameraControllerViewController: UIViewController {
         
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.5)
-        cameraLayer.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         CATransaction.commit()
     }
     
@@ -288,25 +267,6 @@ class CameraControllerViewController: UIViewController {
         bottomBar.backgroundColor = .black
         topBar.backgroundColor = .black
         cameraPreviewView.backgroundColor = .black
-    }
-    
-    private func addCameraLayer() {
-        let widthValue = UIScreen.main.bounds.width
-        let heightValue = UIScreen.main.bounds.height
-        
-        let negativeValue: CGFloat = 44 + 96
-        
-        var Y: CGFloat = 0
-        var X: CGFloat = 0
-        
-        if widthValue > heightValue {
-            Y = widthValue - negativeValue
-        } else {
-            Y = heightValue - negativeValue
-        }
-        
-        cameraLayer.frame = CGRect(x: X, y: Y, width: 0, height: 0)
-        cameraPreviewView.layer.addSublayer(cameraLayer)
     }
     
     private func setupButtonsSettings() {
@@ -532,17 +492,22 @@ extension CameraControllerViewController: CameraSliderDelegate {
 
 extension CameraControllerViewController {
     
-    fileprivate func detectStartOrientation() {
+    fileprivate func detectStartCameraLayerPositions() {
         switch startOrientation {
         case .portrait:
             debugPrint("portrait")
+            addCameraLayer(.portrait)
         case .landscapeLeft:
             debugPrint("landscapeLeft")
+            addCameraLayer(.landscapeLeft)
         case .landscapeRight:
             debugPrint("landscapeRight")
+            addCameraLayer(.landscapeRight)
         case .portraitUpsideDown:
             debugPrint("portraitUpsideDown")
+            addCameraLayer(.portraitUpsideDown)
         default:
+            addCameraLayer(.portrait)
             debugPrint("default portrait")
         }
     }
@@ -580,6 +545,73 @@ extension CameraControllerViewController {
 
     }
     
+    private func addCameraLayer(_ orientation: UIDeviceOrientation) {
+        let widthValue = UIScreen.main.bounds.width
+        let heightValue = UIScreen.main.bounds.height
+        
+        let negativeValue: CGFloat = 44 + 96
+        
+        var Y: CGFloat = 0
+        var X: CGFloat = 0
+        
+        if widthValue > heightValue {
+            Y = widthValue - negativeValue
+        } else {
+            Y = heightValue - negativeValue
+        }
+        
+        var width: CGFloat = 0
+        var height: CGFloat = 0
+        
+        switch startOrientation {
+        case .portrait:
+            debugPrint("portrait")
+        case .landscapeLeft:
+            debugPrint("landscapeLeft")
+        case .landscapeRight:
+            debugPrint("landscapeRight")
+            if widthValue > heightValue {
+                X = 0
+                width = heightValue
+                Y = widthValue
+            } else {
+                X = 0
+                width = widthValue
+                Y = heightValue
+            }
+        case .portraitUpsideDown:
+            debugPrint("portraitUpsideDown")
+        default:
+            debugPrint("default portrait")
+        }
+        
+        debugPrint("X", X, "Y", Y, "width", width, "height", height)
+
+        cameraEngine.previewLayer.frame = CGRect(x: X, y: Y, width: width, height: height)
+        cameraPreviewView.layer.addSublayer(cameraEngine.previewLayer)
+    }
+    
+    
+    fileprivate func animateCameraView() {
+        let widthValue = UIScreen.main.bounds.width
+        let heightValue = UIScreen.main.bounds.height
+        
+        var setupWidthValue: CGFloat!
+        var setupHeightValue: CGFloat!
+        
+        if widthValue < heightValue {
+            setupWidthValue = widthValue
+            setupHeightValue = heightValue - 44 - 96
+        } else {
+            setupWidthValue = heightValue
+            setupHeightValue = widthValue - 44 - 96
+        }
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.7)
+        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+        CATransaction.commit()
+    }
     
 }
 
@@ -588,7 +620,7 @@ extension CameraControllerViewController {
 extension CameraControllerViewController {
     
     @objc fileprivate func dismissAction() {
-        hideAnimation()
+//        hideAnimation()
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] (timer) in
             self?.dismiss(animated: false, completion: nil)

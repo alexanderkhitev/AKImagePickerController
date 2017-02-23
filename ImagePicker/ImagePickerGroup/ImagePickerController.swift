@@ -425,7 +425,6 @@ extension ImagePickerController {
     fileprivate func presentCameraController() {
         let cameraController = CameraControllerViewController()
         cameraController.cameraEngine = cameraEngine
-        cameraController.cameraLayer = cameraEngine.previewLayer
         cameraController.startOrientation = UIDevice.current.orientation
         cameraEngine.previewLayer.connection.videoOrientation = .portrait// AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
         cameraEngine.rotationCamera = false
