@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A602BBA61E5ECFB4003713E9 /* ImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = A602BBA41E5ECFB4003713E9 /* ImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A602BBA61E5ECFB4003713E9 /* ImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = A602BBA41E5ECFB4003713E9 /* ImagePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A602BBAE1E5ED9FF003713E9 /* CameraControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */; };
 		A602BBB01E5EDA32003713E9 /* CameraSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */; };
 		A602BBB21E5EDA53003713E9 /* CameraSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBB11E5EDA53003713E9 /* CameraSliderDelegate.swift */; };
@@ -42,12 +42,38 @@
 		A602BBFA1E5EDF66003713E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A602BBF81E5EDF66003713E9 /* LaunchScreen.storyboard */; };
 		A602BC0C1E5EE223003713E9 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC091E5EE223003713E9 /* AnimationController.swift */; };
 		A602BC0D1E5EE223003713E9 /* ImagePickerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */; };
-		A602BC0E1E5EE223003713E9 /* ImagePickerSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0B1E5EE223003713E9 /* ImagePickerSheetController.swift */; };
+		A602BC0E1E5EE223003713E9 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */; };
+		A6BA27DE1E5EE3F400A61627 /* ImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; };
+		A6BA27DF1E5EE3F400A61627 /* ImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6BA27E01E5EE3F400A61627 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A602BB981E5ECFB4003713E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A602BBA01E5ECFB4003713E9;
+			remoteInfo = ImagePickerController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A6BA27E21E5EE3F400A61627 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A6BA27DF1E5EE3F400A61627 /* ImagePickerController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImagePickerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A602BBA41E5ECFB4003713E9 /* ImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePicker.h; sourceTree = "<group>"; };
+		A602BBA41E5ECFB4003713E9 /* ImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		A602BBA51E5ECFB4003713E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControllerViewController.swift; sourceTree = "<group>"; };
 		A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSlider.swift; sourceTree = "<group>"; };
@@ -85,7 +111,7 @@
 		A602BBFB1E5EDF66003713E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A602BC091E5EE223003713E9 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerAction.swift; sourceTree = "<group>"; };
-		A602BC0B1E5EE223003713E9 /* ImagePickerSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerSheetController.swift; sourceTree = "<group>"; };
+		A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BA27DE1E5EE3F400A61627 /* ImagePickerController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				A602BBA31E5ECFB4003713E9 /* ImagePicker */,
-				A602BBA21E5ECFB4003713E9 /* Products */,
 				A602BBEE1E5EDF66003713E9 /* ImagePickerExample */,
+				A602BBA21E5ECFB4003713E9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,7 +159,7 @@
 				A602BBB31E5EDA63003713E9 /* CameraEngineGroup */,
 				A602BBAC1E5ED9C5003713E9 /* CemaraGroup */,
 				A602BBE51E5EDBDA003713E9 /* Resource */,
-				A602BBA41E5ECFB4003713E9 /* ImagePicker.h */,
+				A602BBA41E5ECFB4003713E9 /* ImagePickerController.h */,
 				A602BBA51E5ECFB4003713E9 /* Info.plist */,
 			);
 			path = ImagePicker;
@@ -227,7 +254,7 @@
 			children = (
 				A602BC091E5EE223003713E9 /* AnimationController.swift */,
 				A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */,
-				A602BC0B1E5EE223003713E9 /* ImagePickerSheetController.swift */,
+				A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */,
 			);
 			path = ImagePickerGroup;
 			sourceTree = "<group>";
@@ -239,7 +266,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A602BBA61E5ECFB4003713E9 /* ImagePicker.h in Headers */,
+				A602BBA61E5ECFB4003713E9 /* ImagePickerController.h in Headers */,
 				A602BBBE1E5EDAA4003713E9 /* CameraEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,10 +299,12 @@
 				A602BBE91E5EDF66003713E9 /* Sources */,
 				A602BBEA1E5EDF66003713E9 /* Frameworks */,
 				A602BBEB1E5EDF66003713E9 /* Resources */,
+				A6BA27E21E5EE3F400A61627 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A6BA27E11E5EE3F400A61627 /* PBXTargetDependency */,
 			);
 			name = ImagePickerControllerExample;
 			productName = ImagePickerExample;
@@ -371,7 +400,7 @@
 				A602BBDA1E5EDB34003713E9 /* ImagePickerLiveCameraCollectionCell.swift in Sources */,
 				A602BBCF1E5EDAFF003713E9 /* SheetCollectionViewCell.swift in Sources */,
 				A602BC0D1E5EE223003713E9 /* ImagePickerAction.swift in Sources */,
-				A602BC0E1E5EE223003713E9 /* ImagePickerSheetController.swift in Sources */,
+				A602BC0E1E5EE223003713E9 /* ImagePickerController.swift in Sources */,
 				A602BBC41E5EDAA4003713E9 /* CameraEngineGifEncoder.swift in Sources */,
 				A602BC0C1E5EE223003713E9 /* AnimationController.swift in Sources */,
 				A602BBE11E5EDB69003713E9 /* PreviewCollectionView.swift in Sources */,
@@ -391,6 +420,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6BA27E11E5EE3F400A61627 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A602BBA01E5ECFB4003713E9 /* ImagePickerController */;
+			targetProxy = A6BA27E01E5EE3F400A61627 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A602BBF31E5EDF66003713E9 /* Main.storyboard */ = {
@@ -557,6 +594,7 @@
 		A602BBFD1E5EDF66003713E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 35L77VM7C3;
 				INFOPLIST_FILE = ImagePickerExample/Info.plist;
@@ -570,6 +608,7 @@
 		A602BBFE1E5EDF66003713E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 35L77VM7C3;
 				INFOPLIST_FILE = ImagePickerExample/Info.plist;
