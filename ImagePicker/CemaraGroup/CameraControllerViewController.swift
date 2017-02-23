@@ -34,7 +34,6 @@ class CameraControllerViewController: UIViewController {
     
     // MARK: - Camera
     
-//    var cameraLayer = AVCaptureVideoPreviewLayer()
     var cameraEngine: CameraEngine!
     
     // MARK: - Flags
@@ -56,6 +55,16 @@ class CameraControllerViewController: UIViewController {
     
     fileprivate let coreMotionManager = CMMotionManager()
     
+    // MARK: - Enums 
+    
+    fileprivate enum CurrentOrientation: String {
+        case portrait, portraitUpsideDown, landscapeRight, landscapeLeft
+    }
+    
+    // MARK: - Hidding data
+    
+    fileprivate var hideDurationTime = 0.5
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -68,7 +77,7 @@ class CameraControllerViewController: UIViewController {
         setupUISettings()
         addUIElements()
         /// orienation
-        detectStartCameraLayerPositions()
+        addCameraLayer(startOrientation)
         setupViewsSettings()
         // Buttons
         setupButtonsSettings()
@@ -235,30 +244,6 @@ class CameraControllerViewController: UIViewController {
         }
         cameraSlider.bottomAnchor.constraint(equalTo: cameraPreviewView.bottomAnchor, constant: -30).isActive = true
         cameraSlider.centerXAnchor.constraint(equalTo: cameraPreviewView.centerXAnchor).isActive = true
-    }
-    
-    // MARK: - Animation
-    
-    
-    fileprivate func hideAnimation() {
-        let widthValue = UIScreen.main.bounds.width
-        let heightValue = UIScreen.main.bounds.height
-        
-        var setupWidthValue: CGFloat!
-        var setupHeightValue: CGFloat!
-        
-        if widthValue < heightValue {
-            setupWidthValue = widthValue
-            setupHeightValue = heightValue - 44 - 96
-        } else {
-            setupWidthValue = heightValue
-            setupHeightValue = widthValue - 44 - 96
-        }
-        
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(0.5)
-        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        CATransaction.commit()
     }
     
     // MARK: - UI Elements settings
@@ -492,35 +477,10 @@ extension CameraControllerViewController: CameraSliderDelegate {
 
 extension CameraControllerViewController {
     
-    fileprivate func detectStartCameraLayerPositions() {
-        switch startOrientation {
-        case .portrait:
-            debugPrint("portrait")
-            addCameraLayer(.portrait)
-        case .landscapeLeft:
-            debugPrint("landscapeLeft")
-            addCameraLayer(.landscapeLeft)
-        case .landscapeRight:
-            debugPrint("landscapeRight")
-            addCameraLayer(.landscapeRight)
-        case .portraitUpsideDown:
-            debugPrint("portraitUpsideDown")
-            addCameraLayer(.portraitUpsideDown)
-        default:
-            addCameraLayer(.portrait)
-            debugPrint("default portrait")
-        }
-    }
-    
     fileprivate func detectHideOrientation() {
-        
-        coreMotionManager.accelerometerUpdateInterval = 0.2
+        coreMotionManager.accelerometerUpdateInterval = 0.1
         //  Using main queue is not recommended. So create new operation queue and pass it to startAccelerometerUpdatesToQueue.
         //  Dispatch U/I code to main thread using dispach_async in the handler.
-        
-        enum CurrentOrientation: String {
-            case portrait, portraitUpsideDown, landscapeRight, landscapeLeft
-        }
         
         coreMotionManager.startAccelerometerUpdates(to: OperationQueue()) { [weak self] accelerometerData, _ in
             guard accelerometerData != nil else { return }
@@ -529,23 +489,15 @@ extension CameraControllerViewController {
                 ?   accelerometerData!.acceleration.x > 0 ? CurrentOrientation.landscapeRight  :   CurrentOrientation.landscapeLeft
                 :   accelerometerData!.acceleration.y > 0 ? CurrentOrientation.portraitUpsideDown   :   CurrentOrientation.portrait
             
-            switch currentOrientation {
-            case .portrait:
-                debugPrint("currentOrientation is portrait")
-            case .portraitUpsideDown:
-                debugPrint("currentOrientation is portraitUpsideDown")
-            case .landscapeLeft:
-                debugPrint("currentOrientation is landscapeLeft")
-            case .landscapeRight:
-                debugPrint("currentOrientation is landscapeRight")
+            DispatchQueue.main.async {
+                self?.hideAnimation(currentOrientation)
             }
-            
             self?.coreMotionManager.stopAccelerometerUpdates()
         }
 
     }
     
-    private func addCameraLayer(_ orientation: UIDeviceOrientation) {
+    fileprivate func addCameraLayer(_ orientation: UIDeviceOrientation) {
         let widthValue = UIScreen.main.bounds.width
         let heightValue = UIScreen.main.bounds.height
         
@@ -611,9 +563,54 @@ extension CameraControllerViewController {
             setupHeightValue = widthValue - 44 - 96
         }
         
+        
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.5)
         self.cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+        CATransaction.commit()
+    }
+    
+    
+    fileprivate func hideAnimation(_ currentOrientation: CurrentOrientation) {
+        let widthValue = UIScreen.main.bounds.width
+        let heightValue = UIScreen.main.bounds.height
+        
+        let negativeValue: CGFloat = 44 + 96 // bottom bar height + top bar height
+        
+        var setupWidthValue: CGFloat = 0
+        var setupHeightValue: CGFloat = 0
+        var X: CGFloat = 0
+        var Y: CGFloat = 0
+        
+        if widthValue < heightValue {
+            setupWidthValue = widthValue
+            setupHeightValue = heightValue - 44 - 96
+        } else {
+            setupWidthValue = heightValue
+            setupHeightValue = widthValue - 44 - 96
+        }
+        
+        switch currentOrientation {
+        case .portrait:
+            debugPrint("currentOrientation is portrait")
+            // width value < heightValue for this case
+            setupWidthValue = cameraEngine.previewLayer.frame.width
+            setupHeightValue = 0//heightValue - negativeValue
+            Y = heightValue - negativeValue
+            X = -widthValue
+        case .portraitUpsideDown:
+            debugPrint("currentOrientation is portraitUpsideDown")
+        case .landscapeLeft:
+            debugPrint("currentOrientation is landscapeLeft")
+        case .landscapeRight:
+            debugPrint("currentOrientation is landscapeRight")
+        }
+        
+        debugPrint("X", X, "Y", Y, "width", setupWidthValue, "height", setupWidthValue)
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(hideDurationTime)
+        cameraEngine.previewLayer.frame = CGRect(x: X, y: Y, width: setupWidthValue, height: setupHeightValue)
         CATransaction.commit()
     }
     
@@ -624,9 +621,8 @@ extension CameraControllerViewController {
 extension CameraControllerViewController {
     
     @objc fileprivate func dismissAction() {
-//        hideAnimation()
-        
-        Timer.scheduledTimer(withTimeInterval: 0, repeats: false) { [weak self] (timer) in
+        detectHideOrientation()
+        Timer.scheduledTimer(withTimeInterval: hideDurationTime, repeats: false) { [weak self] (timer) in
             self?.dismiss(animated: false, completion: nil)
         }
     }
