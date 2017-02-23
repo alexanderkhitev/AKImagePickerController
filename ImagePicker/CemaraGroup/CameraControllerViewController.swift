@@ -54,9 +54,12 @@ class CameraControllerViewController: UIViewController {
         super.viewDidLoad()
         // settings
         setupSettings()
+        // observers
+        addObservers()
         // UI
         setupUISettings()
         addUIElements()
+        addCameraLayer()
         setupViewsSettings()
         // Buttons
         setupButtonsSettings()
@@ -71,17 +74,10 @@ class CameraControllerViewController: UIViewController {
         setupCameraSliderSettings()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getCameraLayer()
-        addObservers()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateCameraView()
     }
-    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -90,10 +86,8 @@ class CameraControllerViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        getCameraLayer()
         setupUIElementsPositions()
     }
-    
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -111,16 +105,6 @@ class CameraControllerViewController: UIViewController {
         return .portrait
     }
     
-    
-    
-    private func getCameraLayer() {
-        guard view.layer.sublayers != nil else { return }
-        for sublayer in view.layer.sublayers! {
-            if sublayer.isKind(of: AVCaptureVideoPreviewLayer.self) {
-                cameraLayer = sublayer as! AVCaptureVideoPreviewLayer
-            }
-        }
-    }
     
     // MARK: - Settings
     
@@ -293,11 +277,21 @@ class CameraControllerViewController: UIViewController {
     private func setupViewsSettings() {
         bottomBar.backgroundColor = .black
         topBar.backgroundColor = .black
-        
-        //
         cameraPreviewView.backgroundColor = .black
+    }
+    
+    private func addCameraLayer() {
+        let orientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
         
-        // bottom height
+        switch orientation {
+        case .portrait, .portraitUpsideDown:
+            debugPrint("portrait")
+        case .landscapeLeft:
+            debugPrint("left")
+        case .landscapeRight:
+            debugPrint("right")
+        }
+        
         let widthValue = UIScreen.main.bounds.width
         let heightValue = UIScreen.main.bounds.height
         
