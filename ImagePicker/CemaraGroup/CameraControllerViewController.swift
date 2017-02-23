@@ -571,23 +571,25 @@ extension CameraControllerViewController {
         case .landscapeRight:
             debugPrint("landscapeRight")
             if widthValue > heightValue {
-                X = 0
                 width = heightValue
-                Y = widthValue
             } else {
-                X = 0
                 width = widthValue
-                Y = heightValue
             }
+            X = width
         case .portraitUpsideDown:
             debugPrint("portraitUpsideDown")
         default:
             debugPrint("default portrait")
         }
         
+//        height += 1
+        
         debugPrint("X", X, "Y", Y, "width", width, "height", height)
 
         cameraEngine.previewLayer.frame = CGRect(x: X, y: Y, width: width, height: height)
+        
+//        cameraEngine.previewLayer.backgroundColor = UIColor.red.cgColor
+        
         cameraPreviewView.layer.addSublayer(cameraEngine.previewLayer)
     }
     
@@ -607,10 +609,18 @@ extension CameraControllerViewController {
             setupHeightValue = widthValue - 44 - 96
         }
         
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(0.7)
-        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
-        CATransaction.commit()
+//        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (t) in
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.7)
+            self.cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+            CATransaction.commit()
+
+//        }
+        
+//        CATransaction.begin()
+//        CATransaction.setAnimationDuration(0.7)
+//        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: setupWidthValue, height: setupHeightValue)
+//        CATransaction.commit()
     }
     
 }
