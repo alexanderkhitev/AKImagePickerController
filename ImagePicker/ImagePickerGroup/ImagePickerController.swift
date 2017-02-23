@@ -190,25 +190,7 @@ open class ImagePickerController: UIViewController {
         checkPhotoLibraryAccess()
     }
     
-    // MARK: - Layout functions
-    
-    override open func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    
-    
-    // MARK: - s
-    
-//    override open var shouldAutorotate: Bool {
-//        return true
-//    }
-//    
-//    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        return .all
-//    }
-    
   
-    
     // MARK: - Actions
     
     /// Adds an new action.
@@ -444,6 +426,7 @@ extension ImagePickerController {
         let cameraController = CameraControllerViewController()
         cameraController.cameraEngine = cameraEngine
         cameraController.cameraLayer = cameraEngine.previewLayer
+        cameraController.startOrientation = UIDevice.current.orientation
         cameraEngine.previewLayer.connection.videoOrientation = .portrait// AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
         cameraEngine.rotationCamera = false
                 

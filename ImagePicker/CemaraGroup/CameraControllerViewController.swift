@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreMotion
 
 class CameraControllerViewController: UIViewController {
     
@@ -40,6 +41,9 @@ class CameraControllerViewController: UIViewController {
     
     fileprivate var areTorchElementsVisibles = false
     
+    // MARK: - Data
+    
+    var startOrientation: UIDeviceOrientation = UIDeviceOrientation(rawValue: 1)!
     
     // MARK: - Images
     
@@ -47,6 +51,10 @@ class CameraControllerViewController: UIViewController {
         let turnedOn = UIImage(named: "FlashTurnedOn", in: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"), compatibleWith: nil)
         let turnedOff = UIImage(named: "FlashTurnedOff", in: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"), compatibleWith: nil)
     }
+    
+    // MARK: - Managers
+    
+    fileprivate let coreMotionManager = CMMotionManager()
     
     // MARK: - Lifecycle
     
@@ -59,6 +67,8 @@ class CameraControllerViewController: UIViewController {
         // UI
         setupUISettings()
         addUIElements()
+        /// orienation
+        detectStartOrientation()
         addCameraLayer()
         setupViewsSettings()
         // Buttons
@@ -281,17 +291,6 @@ class CameraControllerViewController: UIViewController {
     }
     
     private func addCameraLayer() {
-        let orientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
-        
-        switch orientation {
-        case .portrait, .portraitUpsideDown:
-            debugPrint("portrait")
-        case .landscapeLeft:
-            debugPrint("left")
-        case .landscapeRight:
-            debugPrint("right")
-        }
-        
         let widthValue = UIScreen.main.bounds.width
         let heightValue = UIScreen.main.bounds.height
         
@@ -526,6 +525,61 @@ extension CameraControllerViewController: CameraSliderDelegate {
     func didChangeValue(_ value: CGFloat) {
         cameraEngine.cameraZoomFactor = value
     }
+    
+}
+
+// MARK: - Orientation 
+
+extension CameraControllerViewController {
+    
+    fileprivate func detectStartOrientation() {
+        switch startOrientation {
+        case .portrait:
+            debugPrint("portrait")
+        case .landscapeLeft:
+            debugPrint("landscapeLeft")
+        case .landscapeRight:
+            debugPrint("landscapeRight")
+        case .portraitUpsideDown:
+            debugPrint("portraitUpsideDown")
+        default:
+            debugPrint("default portrait")
+        }
+    }
+    
+    fileprivate func detectHideOrientation() {
+        
+        coreMotionManager.accelerometerUpdateInterval = 0.2
+        //  Using main queue is not recommended. So create new operation queue and pass it to startAccelerometerUpdatesToQueue.
+        //  Dispatch U/I code to main thread using dispach_async in the handler.
+        
+        enum CurrentOrientation: String {
+            case portrait, portraitUpsideDown, landscapeRight, landscapeLeft
+        }
+        
+        coreMotionManager.startAccelerometerUpdates(to: OperationQueue()) { [weak self] accelerometerData, _ in
+            guard accelerometerData != nil else { return }
+            
+            let currentOrientation = abs(accelerometerData!.acceleration.y) < abs(accelerometerData!.acceleration.x)
+                ?   accelerometerData!.acceleration.x > 0 ? CurrentOrientation.landscapeRight  :   CurrentOrientation.landscapeLeft
+                :   accelerometerData!.acceleration.y > 0 ? CurrentOrientation.portraitUpsideDown   :   CurrentOrientation.portrait
+            
+            switch currentOrientation {
+            case .portrait:
+                debugPrint("currentOrientation is portrait")
+            case .portraitUpsideDown:
+                debugPrint("currentOrientation is portraitUpsideDown")
+            case .landscapeLeft:
+                debugPrint("currentOrientation is landscapeLeft")
+            case .landscapeRight:
+                debugPrint("currentOrientation is landscapeRight")
+            }
+            
+            self?.coreMotionManager.stopAccelerometerUpdates()
+        }
+
+    }
+    
     
 }
 
