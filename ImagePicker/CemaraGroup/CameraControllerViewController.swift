@@ -606,10 +606,21 @@ extension CameraControllerViewController {
             X = -widthValue
         case .portraitUpsideDown:
             debugPrint("currentOrientation is portraitUpsideDown")
+            setupWidthValue = cameraEngine.previewLayer.frame.width
+            setupHeightValue = 0//heightValue - negativeValue
+            Y = heightValue - negativeValue
+            X = -widthValue
         case .landscapeLeft:
             debugPrint("currentOrientation is landscapeLeft")
+            X = 0
+            Y = 0
+            setupHeightValue = 0
+            setupWidthValue = -widthValue
         case .landscapeRight:
             debugPrint("currentOrientation is landscapeRight")
+            X = widthValue
+            Y = heightValue - negativeValue
+            setupHeightValue = 0
         }
         
         debugPrint("X", X, "Y", Y, "width", setupWidthValue, "height", setupWidthValue)
