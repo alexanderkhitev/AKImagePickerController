@@ -91,7 +91,7 @@ class CameraControllerViewController: UIViewController {
         // Camera
         setupFlashMode(.auto)
         // Camera pinch
-        addZoomGestureRecognizer()
+        addCameraGestureRecognizers()
         // slider
         setupCameraSliderSettings()
     }
@@ -429,12 +429,15 @@ extension CameraControllerViewController {
         }
     }
     
-    // MARK: - Zoom
+    // MARK: - Zoom functions
     
-    fileprivate func addZoomGestureRecognizer() {
+    fileprivate func addCameraGestureRecognizers() {
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchCameraZoom(_:)))
         cameraPreviewView.addGestureRecognizer(pinchGestureRecognizer)
         cameraPreviewView.isUserInteractionEnabled = true
+        
+        let focusGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(focus(_:)))
+        cameraPreviewView.addGestureRecognizer(focusGestureRecognizer)
     }
     
     @objc private func pinchCameraZoom(_ gesture: UIPinchGestureRecognizer) {
@@ -465,9 +468,17 @@ extension CameraControllerViewController {
         cameraSlider.isHidden = false
     }
     
+    // MARK: - Focus
+    
+    @objc private func focus(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        let point = tapGestureRecognizer.location(in: cameraPreviewView)
+        debugPrint("point", point)
+        cameraEngine.focus(point)
+    }
+    
 }
 
-// MARK: - Camera Slider
+// MARK: - Camera Slider Delegate
 
 extension CameraControllerViewController: CameraSliderDelegate {
     
