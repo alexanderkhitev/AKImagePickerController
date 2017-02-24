@@ -488,7 +488,7 @@ extension CameraControllerViewController {
         
         coreMotionManager.startAccelerometerUpdates(to: OperationQueue()) { [weak self] accelerometerData, _ in
             guard accelerometerData != nil else { return }
-            
+
             let currentOrientation = abs(accelerometerData!.acceleration.y) < abs(accelerometerData!.acceleration.x)
                 ?   accelerometerData!.acceleration.x > 0 ? CurrentOrientation.landscapeRight  :   CurrentOrientation.landscapeLeft
                 :   accelerometerData!.acceleration.y > 0 ? CurrentOrientation.portraitUpsideDown   :   CurrentOrientation.portrait
@@ -519,7 +519,7 @@ extension CameraControllerViewController {
         }
         
         var width: CGFloat = 0
-        var height: CGFloat = 0
+        let height: CGFloat = 0
         
         switch startOrientation {
         case .portrait:

@@ -90,10 +90,8 @@ open class ImagePickerController: UIViewController {
         }
     }
     
-    
     /// The media type of the displayed assets
     open let mediaType: ImagePickerMediaType
-
     
     // MARK: - CollectionView identifier
     
@@ -111,7 +109,6 @@ open class ImagePickerController: UIViewController {
     // MARK: - Camera 
     
     fileprivate var cameraEngine = CameraEngine()
-    fileprivate var isCameraControllerPreseneted = false
     
     // MARK: - Cells 
     
@@ -426,25 +423,22 @@ extension ImagePickerController {
         cameraEngine.previewLayer.connection.videoOrientation = .portrait// AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
         cameraEngine.rotationCamera = false
                 
-        present(cameraController, animated: false, completion: { [weak self] in
+        present(cameraController, animated: false, completion: {
 
                 })
-        isCameraControllerPreseneted = true
     }
 
     
     fileprivate func returnCameraLayerToCell() {
-        if isCameraControllerPreseneted == true {
-            guard let cameraLiveCell = previewPhotoCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? ImagePickerLiveCameraCollectionCell else { return }
-            cameraEngine.rotationCamera = true
-            cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 95, height: 95)
-            
-            // return to standard cell behavior
-            cameraEngine.changeCurrentDevice(.front)
-            cameraEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
-            
-            cameraLiveCell.containerView.layer.insertSublayer(cameraEngine.previewLayer, at: 1)
-        }
+        guard let cameraLiveCell = previewPhotoCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? ImagePickerLiveCameraCollectionCell else { return }
+        cameraEngine.rotationCamera = true
+        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 95, height: 95)
+        
+        // return to standard cell behavior
+        cameraEngine.changeCurrentDevice(.front)
+        cameraEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
+        
+        cameraLiveCell.containerView.layer.insertSublayer(cameraEngine.previewLayer, at: 1)
     }
     
 }
