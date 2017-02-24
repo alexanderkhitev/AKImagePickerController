@@ -470,4 +470,14 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         present(photoLibraryController, animated: true, completion: nil)
     }
     
+    // MARK: - Image Picker delegate
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true, completion: nil)
+    }
+ 
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
