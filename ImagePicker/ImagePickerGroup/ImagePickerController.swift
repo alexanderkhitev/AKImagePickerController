@@ -162,7 +162,7 @@ open class ImagePickerController: UIViewController {
         // Camera
         cameraEngine.rotationCamera = true
         cameraEngine.currentDevice = .front
-        cameraEngine.sessionPresset = .high
+        cameraEngine.sessionPresset = .photo
         cameraEngine.startSession()
         // UI
         addUIElements()
