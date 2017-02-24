@@ -30,7 +30,8 @@ class SheetController: NSObject {
     
     fileprivate(set) var actions = [ImagePickerAction]()
     
-    var actionHandlingCallback: (() -> ())?
+    /// Adding style of Image Picker action for choose the specific action. Default Style is not transmitted or transferred to, but when you click open ImagePickerController as is the case with standard UIAlertController
+    var actionHandlingCallback: ((_ style: ImagePickerActionStyle?) -> ())?
     
     fileprivate(set) var previewHeight: CGFloat = 0
     var numberOfSelectedAssets = 0
@@ -157,19 +158,17 @@ class SheetController: NSObject {
     }
     
     fileprivate func handleAction(_ action: ImagePickerAction) {
-        actionHandlingCallback?()
+        actionHandlingCallback?(action.style)
         action.handle(numberOfSelectedAssets)
     }
     
     func handleCancelAction() {
         let cancelAction = actions.filter { $0.style == .cancel }
                                   .first
-        
         if let cancelAction = cancelAction {
             handleAction(cancelAction)
-        }
-        else {
-            actionHandlingCallback?()
+        } else {
+            actionHandlingCallback?(nil)
         }
     }
     

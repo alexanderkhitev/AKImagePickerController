@@ -10,6 +10,7 @@ import Foundation
 
 public enum ImagePickerActionStyle {
     case `default`
+    case photoLibrary
     case cancel
 }
 
@@ -68,11 +69,22 @@ open class ImagePickerAction {
         self.secondaryHandler = secondaryHandler
     }
     
+    // For photo library
+    
+    public init(title: String, style: ImagePickerActionStyle) {
+        self.title = title
+        self.style = style
+        self.handler = nil
+        self.secondaryHandler = nil
+        self.secondaryTitle = { _ in title }
+    }
+    
+    // MARK: - Actions
+    
     func handle(_ numberOfImages: Int = 0) {
         if numberOfImages > 0 {
             secondaryHandler?(self, numberOfImages)
-        }
-        else {
+        } else {
             handler?(self)
         }
     }

@@ -35,15 +35,20 @@ open class ImagePickerController: UIViewController {
     
     fileprivate lazy var sheetController: SheetController = {
         let controller = SheetController(previewCollectionView: self.previewPhotoCollectionView)
-        controller.actionHandlingCallback = { [weak self] in
-            self?.dismiss(animated: true, completion: { _ in
-                // Possible retain cycle when action handlers hold a reference to the IPSC
-                // Remove all actions to break it
-                // TODO: - memory leaks
-//                controller.removeAllActions()
-            })
+        controller.actionHandlingCallback = { [weak self] (actionStyle) in
+            if actionStyle == nil {
+                self?.dismiss(animated: false, completion: nil)
+            } else {
+                switch actionStyle! {
+                case .photoLibrary:
+                    // show image picker 
+                    self?.showPhotoLibraryController()
+//                    self?.dismiss(animated: false, completion: nil)
+                default:
+                    self?.dismiss(animated: false, completion: nil)
+                }
+            }
         }
-        
         return controller
     }()
     
@@ -449,6 +454,20 @@ extension ImagePickerController: CameraControllerViewControllerDelegate {
     
     func willHide() {
         returnCameraLayerToCell()
+    }
+    
+}
+
+// MARK: - Image picker 
+
+extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    fileprivate func showPhotoLibraryController() {
+        let photoLibraryController = UIImagePickerController()
+        photoLibraryController.sourceType = .photoLibrary
+        photoLibraryController.delegate = self
+        
+        present(photoLibraryController, animated: true, completion: nil)
     }
     
 }
