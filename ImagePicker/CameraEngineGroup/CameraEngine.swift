@@ -300,10 +300,10 @@ public class CameraEngine: NSObject {
 			if (!UIDevice.current.isGeneratingDeviceOrientationNotifications) {
 				UIDevice.current.beginGeneratingDeviceOrientationNotifications()
 			}
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIDeviceOrientationDidChange, object: nil, queue: OperationQueue.main) { (_) -> Void in
-                // TODO: - there was a crush
-                if self.rotationCamera {
-                    self.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIDeviceOrientationDidChange, object: nil, queue: OperationQueue.main) { [weak self] (_) -> Void in
+                guard self != nil else { return }
+                if self!.rotationCamera {
+                    self!.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
 
                 }
             }
