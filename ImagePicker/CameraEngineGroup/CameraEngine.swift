@@ -293,7 +293,7 @@ public class CameraEngine: NSObject {
         }
     }
     
-    //MARK: Device management
+    // MARK: - Device management
     
     private func handleDeviceOrientation() {
         if self.rotationCamera {
@@ -303,8 +303,14 @@ public class CameraEngine: NSObject {
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UIDeviceOrientationDidChange, object: nil, queue: OperationQueue.main) { [weak self] (_) -> Void in
                 guard self != nil else { return }
                 if self!.rotationCamera {
-                    self!.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
+                    
+                    let orientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
 
+                    if orientation == .portraitUpsideDown {
+                        return
+                    }
+                    
+                    self!.previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
                 }
             }
         }
