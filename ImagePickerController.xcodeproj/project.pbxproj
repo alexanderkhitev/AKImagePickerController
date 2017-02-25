@@ -43,6 +43,44 @@
 		A602BC0C1E5EE223003713E9 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC091E5EE223003713E9 /* AnimationController.swift */; };
 		A602BC0D1E5EE223003713E9 /* ImagePickerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */; };
 		A602BC0E1E5EE223003713E9 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */; };
+		A675D1D51E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1881E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1D61E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D18B1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1D71E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D18E1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1D81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1911E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1D91E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1941E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1DA1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1971E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1DB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D19A1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1DC1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D19D1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1DD1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1A01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1DE1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1A31E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1DF1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1A61E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1E01E61C9250044EA46 /* TOActivityCroppedImageProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1A91E61C9250044EA46 /* TOActivityCroppedImageProvider.h */; };
+		A675D1E11E61C9250044EA46 /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1AA1E61C9250044EA46 /* TOActivityCroppedImageProvider.m */; };
+		A675D1E21E61C9250044EA46 /* TOCroppedImageAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1AB1E61C9250044EA46 /* TOCroppedImageAttributes.h */; };
+		A675D1E31E61C9250044EA46 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1AC1E61C9250044EA46 /* TOCroppedImageAttributes.m */; };
+		A675D1E41E61C9250044EA46 /* TOCropViewControllerTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1AD1E61C9250044EA46 /* TOCropViewControllerTransitioning.h */; };
+		A675D1E51E61C9250044EA46 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1AE1E61C9250044EA46 /* TOCropViewControllerTransitioning.m */; };
+		A675D1E61E61C9250044EA46 /* UIImage+CropRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1AF1E61C9250044EA46 /* UIImage+CropRotate.h */; };
+		A675D1E71E61C9250044EA46 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1B01E61C9250044EA46 /* UIImage+CropRotate.m */; };
+		A675D1E81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1B21E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1E91E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1B51E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1EA1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1B81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1EB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1BB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1EC1E61C9250044EA46 /* TOCropViewController-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1BD1E61C9250044EA46 /* TOCropViewController-Bridging-Header.h */; };
+		A675D1ED1E61C9250044EA46 /* TOCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1BE1E61C9250044EA46 /* TOCropViewController.h */; };
+		A675D1EE1E61C9250044EA46 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1BF1E61C9250044EA46 /* TOCropViewController.m */; };
+		A675D1EF1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1C11E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1F01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1C41E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1F11E61C9250044EA46 /* TOCropOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1C71E61C9250044EA46 /* TOCropOverlayView.h */; };
+		A675D1F21E61C9250044EA46 /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1C81E61C9250044EA46 /* TOCropOverlayView.m */; };
+		A675D1F31E61C9250044EA46 /* TOCropScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1C91E61C9250044EA46 /* TOCropScrollView.h */; };
+		A675D1F41E61C9250044EA46 /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1CA1E61C9250044EA46 /* TOCropScrollView.m */; };
+		A675D1F51E61C9250044EA46 /* TOCropToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1CB1E61C9250044EA46 /* TOCropToolbar.h */; };
+		A675D1F61E61C9250044EA46 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1CC1E61C9250044EA46 /* TOCropToolbar.m */; };
+		A675D1F71E61C9250044EA46 /* TOCropView.h in Headers */ = {isa = PBXBuildFile; fileRef = A675D1CD1E61C9250044EA46 /* TOCropView.h */; };
+		A675D1F81E61C9250044EA46 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = A675D1CE1E61C9250044EA46 /* TOCropView.m */; };
+		A675D1F91E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1D01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
+		A675D1FA1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1D31E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
 		A6BA27DE1E5EE3F400A61627 /* ImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; };
 		A6BA27DF1E5EE3F400A61627 /* ImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6BA27E41E5F34B300A61627 /* CameraControllerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */; };
@@ -113,6 +151,46 @@
 		A602BC091E5EE223003713E9 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerAction.swift; sourceTree = "<group>"; };
 		A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		A675D17F1E61C90C0044EA46 /* TOCropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOCropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A675D1821E61C90C0044EA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A675D1891E61C9250044EA46 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D18C1E61C9250044EA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D18F1E61C9250044EA46 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1921E61C9250044EA46 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1951E61C9250044EA46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1981E61C9250044EA46 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D19B1E61C9250044EA46 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D19E1E61C9250044EA46 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1A11E61C9250044EA46 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1A41E61C9250044EA46 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1A71E61C9250044EA46 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1A91E61C9250044EA46 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		A675D1AA1E61C9250044EA46 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		A675D1AB1E61C9250044EA46 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		A675D1AC1E61C9250044EA46 /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		A675D1AD1E61C9250044EA46 /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		A675D1AE1E61C9250044EA46 /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		A675D1AF1E61C9250044EA46 /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		A675D1B01E61C9250044EA46 /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		A675D1B31E61C9250044EA46 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1B61E61C9250044EA46 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1B91E61C9250044EA46 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1BC1E61C9250044EA46 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1BD1E61C9250044EA46 /* TOCropViewController-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TOCropViewController-Bridging-Header.h"; sourceTree = "<group>"; };
+		A675D1BE1E61C9250044EA46 /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
+		A675D1BF1E61C9250044EA46 /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
+		A675D1C21E61C9250044EA46 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1C51E61C9250044EA46 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1C71E61C9250044EA46 /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		A675D1C81E61C9250044EA46 /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		A675D1C91E61C9250044EA46 /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		A675D1CA1E61C9250044EA46 /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		A675D1CB1E61C9250044EA46 /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		A675D1CC1E61C9250044EA46 /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		A675D1CD1E61C9250044EA46 /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		A675D1CE1E61C9250044EA46 /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		A675D1D11E61C9250044EA46 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		A675D1D41E61C9250044EA46 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControllerViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +210,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A675D17B1E61C90C0044EA46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -140,6 +225,7 @@
 			children = (
 				A602BBA31E5ECFB4003713E9 /* ImagePicker */,
 				A602BBEE1E5EDF66003713E9 /* ImagePickerExample */,
+				A675D1801E61C90C0044EA46 /* TOCropViewController */,
 				A602BBA21E5ECFB4003713E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,6 +235,7 @@
 			children = (
 				A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */,
 				A602BBED1E5EDF66003713E9 /* ImagePickerControllerExample.app */,
+				A675D17F1E61C90C0044EA46 /* TOCropViewController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +349,220 @@
 			path = ImagePickerGroup;
 			sourceTree = "<group>";
 		};
+		A675D1801E61C90C0044EA46 /* TOCropViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1871E61C9250044EA46 /* ar.lproj */,
+				A675D18A1E61C9250044EA46 /* Base.lproj */,
+				A675D18D1E61C9250044EA46 /* da.lproj */,
+				A675D1901E61C9250044EA46 /* de.lproj */,
+				A675D1931E61C9250044EA46 /* en.lproj */,
+				A675D1961E61C9250044EA46 /* es.lproj */,
+				A675D1991E61C9250044EA46 /* fr.lproj */,
+				A675D19C1E61C9250044EA46 /* id.lproj */,
+				A675D19F1E61C9250044EA46 /* it.lproj */,
+				A675D1A21E61C9250044EA46 /* ja.lproj */,
+				A675D1A51E61C9250044EA46 /* ko.lproj */,
+				A675D1A81E61C9250044EA46 /* Models */,
+				A675D1B11E61C9250044EA46 /* nl.lproj */,
+				A675D1B41E61C9250044EA46 /* pl.lproj */,
+				A675D1B71E61C9250044EA46 /* pt.lproj */,
+				A675D1BA1E61C9250044EA46 /* ru.lproj */,
+				A675D1BD1E61C9250044EA46 /* TOCropViewController-Bridging-Header.h */,
+				A675D1BE1E61C9250044EA46 /* TOCropViewController.h */,
+				A675D1BF1E61C9250044EA46 /* TOCropViewController.m */,
+				A675D1C01E61C9250044EA46 /* tr.lproj */,
+				A675D1C31E61C9250044EA46 /* vi.lproj */,
+				A675D1C61E61C9250044EA46 /* Views */,
+				A675D1CF1E61C9250044EA46 /* zh-Hans.lproj */,
+				A675D1D21E61C9250044EA46 /* zh-Hant.lproj */,
+				A675D1821E61C90C0044EA46 /* Info.plist */,
+			);
+			path = TOCropViewController;
+			sourceTree = "<group>";
+		};
+		A675D1871E61C9250044EA46 /* ar.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1881E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = ar.lproj;
+			sourceTree = "<group>";
+		};
+		A675D18A1E61C9250044EA46 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D18B1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		A675D18D1E61C9250044EA46 /* da.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D18E1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = da.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1901E61C9250044EA46 /* de.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1911E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = de.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1931E61C9250044EA46 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1941E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1961E61C9250044EA46 /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1971E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = es.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1991E61C9250044EA46 /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D19A1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = fr.lproj;
+			sourceTree = "<group>";
+		};
+		A675D19C1E61C9250044EA46 /* id.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D19D1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = id.lproj;
+			sourceTree = "<group>";
+		};
+		A675D19F1E61C9250044EA46 /* it.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1A01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = it.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1A21E61C9250044EA46 /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1A31E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = ja.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1A51E61C9250044EA46 /* ko.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1A61E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = ko.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1A81E61C9250044EA46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1A91E61C9250044EA46 /* TOActivityCroppedImageProvider.h */,
+				A675D1AA1E61C9250044EA46 /* TOActivityCroppedImageProvider.m */,
+				A675D1AB1E61C9250044EA46 /* TOCroppedImageAttributes.h */,
+				A675D1AC1E61C9250044EA46 /* TOCroppedImageAttributes.m */,
+				A675D1AD1E61C9250044EA46 /* TOCropViewControllerTransitioning.h */,
+				A675D1AE1E61C9250044EA46 /* TOCropViewControllerTransitioning.m */,
+				A675D1AF1E61C9250044EA46 /* UIImage+CropRotate.h */,
+				A675D1B01E61C9250044EA46 /* UIImage+CropRotate.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A675D1B11E61C9250044EA46 /* nl.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1B21E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = nl.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1B41E61C9250044EA46 /* pl.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1B51E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = pl.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1B71E61C9250044EA46 /* pt.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1B81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = pt.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1BA1E61C9250044EA46 /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1BB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = ru.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1C01E61C9250044EA46 /* tr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1C11E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = tr.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1C31E61C9250044EA46 /* vi.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1C41E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = vi.lproj;
+			sourceTree = "<group>";
+		};
+		A675D1C61E61C9250044EA46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1C71E61C9250044EA46 /* TOCropOverlayView.h */,
+				A675D1C81E61C9250044EA46 /* TOCropOverlayView.m */,
+				A675D1C91E61C9250044EA46 /* TOCropScrollView.h */,
+				A675D1CA1E61C9250044EA46 /* TOCropScrollView.m */,
+				A675D1CB1E61C9250044EA46 /* TOCropToolbar.h */,
+				A675D1CC1E61C9250044EA46 /* TOCropToolbar.m */,
+				A675D1CD1E61C9250044EA46 /* TOCropView.h */,
+				A675D1CE1E61C9250044EA46 /* TOCropView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A675D1CF1E61C9250044EA46 /* zh-Hans.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1D01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = "zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
+		A675D1D21E61C9250044EA46 /* zh-Hant.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A675D1D31E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = "zh-Hant.lproj";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -271,6 +572,23 @@
 			files = (
 				A602BBA61E5ECFB4003713E9 /* ImagePickerController.h in Headers */,
 				A602BBBE1E5EDAA4003713E9 /* CameraEngine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A675D17C1E61C90C0044EA46 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A675D1E41E61C9250044EA46 /* TOCropViewControllerTransitioning.h in Headers */,
+				A675D1F31E61C9250044EA46 /* TOCropScrollView.h in Headers */,
+				A675D1F51E61C9250044EA46 /* TOCropToolbar.h in Headers */,
+				A675D1E61E61C9250044EA46 /* UIImage+CropRotate.h in Headers */,
+				A675D1E21E61C9250044EA46 /* TOCroppedImageAttributes.h in Headers */,
+				A675D1F11E61C9250044EA46 /* TOCropOverlayView.h in Headers */,
+				A675D1F71E61C9250044EA46 /* TOCropView.h in Headers */,
+				A675D1EC1E61C9250044EA46 /* TOCropViewController-Bridging-Header.h in Headers */,
+				A675D1ED1E61C9250044EA46 /* TOCropViewController.h in Headers */,
+				A675D1E01E61C9250044EA46 /* TOActivityCroppedImageProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +632,24 @@
 			productReference = A602BBED1E5EDF66003713E9 /* ImagePickerControllerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A675D17E1E61C90C0044EA46 /* TOCropViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A675D1841E61C90C0044EA46 /* Build configuration list for PBXNativeTarget "TOCropViewController" */;
+			buildPhases = (
+				A675D17A1E61C90C0044EA46 /* Sources */,
+				A675D17B1E61C90C0044EA46 /* Frameworks */,
+				A675D17C1E61C90C0044EA46 /* Headers */,
+				A675D17D1E61C90C0044EA46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TOCropViewController;
+			productName = TOCropViewController;
+			productReference = A675D17F1E61C90C0044EA46 /* TOCropViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,6 +671,11 @@
 						DevelopmentTeam = 35L77VM7C3;
 						ProvisioningStyle = Automatic;
 					};
+					A675D17E1E61C90C0044EA46 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 35L77VM7C3;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = A602BB9B1E5ECFB4003713E9 /* Build configuration list for PBXProject "ImagePickerController" */;
@@ -344,6 +685,23 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				da,
+				de,
+				es,
+				fr,
+				id,
+				it,
+				ja,
+				ko,
+				nl,
+				pl,
+				pt,
+				ru,
+				tr,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = A602BB971E5ECFB4003713E9;
 			productRefGroup = A602BBA21E5ECFB4003713E9 /* Products */;
@@ -352,6 +710,7 @@
 			targets = (
 				A602BBA01E5ECFB4003713E9 /* ImagePickerController */,
 				A602BBEC1E5EDF66003713E9 /* ImagePickerControllerExample */,
+				A675D17E1E61C90C0044EA46 /* TOCropViewController */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +734,32 @@
 				A602BBFA1E5EDF66003713E9 /* LaunchScreen.storyboard in Resources */,
 				A602BBF71E5EDF66003713E9 /* Assets.xcassets in Resources */,
 				A602BBF51E5EDF66003713E9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A675D17D1E61C90C0044EA46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A675D1D71E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1D51E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1D61E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1E81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1DA1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1D81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1D91E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1EF1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1FA1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1E91E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1DD1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1EB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1F01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1DB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1DC1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1DF1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1F91E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1DE1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
+				A675D1EA1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +808,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A675D17A1E61C90C0044EA46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A675D1EE1E61C9250044EA46 /* TOCropViewController.m in Sources */,
+				A675D1E51E61C9250044EA46 /* TOCropViewControllerTransitioning.m in Sources */,
+				A675D1F21E61C9250044EA46 /* TOCropOverlayView.m in Sources */,
+				A675D1F81E61C9250044EA46 /* TOCropView.m in Sources */,
+				A675D1E11E61C9250044EA46 /* TOActivityCroppedImageProvider.m in Sources */,
+				A675D1F61E61C9250044EA46 /* TOCropToolbar.m in Sources */,
+				A675D1F41E61C9250044EA46 /* TOCropScrollView.m in Sources */,
+				A675D1E71E61C9250044EA46 /* UIImage+CropRotate.m in Sources */,
+				A675D1E31E61C9250044EA46 /* TOCroppedImageAttributes.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -448,6 +849,158 @@
 				A602BBF91E5EDF66003713E9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A675D1881E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1891E61C9250044EA46 /* ar */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D18B1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D18C1E61C9250044EA46 /* Base */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D18E1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D18F1E61C9250044EA46 /* da */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1911E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1921E61C9250044EA46 /* de */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1941E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1951E61C9250044EA46 /* en */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1971E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1981E61C9250044EA46 /* es */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D19A1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D19B1E61C9250044EA46 /* fr */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D19D1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D19E1E61C9250044EA46 /* id */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1A01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1A11E61C9250044EA46 /* it */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1A31E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1A41E61C9250044EA46 /* ja */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1A61E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1A71E61C9250044EA46 /* ko */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1B21E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1B31E61C9250044EA46 /* nl */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1B51E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1B61E61C9250044EA46 /* pl */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1B81E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1B91E61C9250044EA46 /* pt */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1BB1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1BC1E61C9250044EA46 /* ru */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1C11E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1C21E61C9250044EA46 /* tr */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1C41E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1C51E61C9250044EA46 /* vi */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1D01E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1D11E61C9250044EA46 /* zh-Hans */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		A675D1D31E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A675D1D41E61C9250044EA46 /* zh-Hant */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -623,6 +1176,42 @@
 			};
 			name = Release;
 		};
+		A675D1851E61C90C0044EA46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 35L77VM7C3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TOCropViewController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TOCropViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A675D1861E61C90C0044EA46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 35L77VM7C3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TOCropViewController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TOCropViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -649,6 +1238,15 @@
 			buildConfigurations = (
 				A602BBFD1E5EDF66003713E9 /* Debug */,
 				A602BBFE1E5EDF66003713E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A675D1841E61C90C0044EA46 /* Build configuration list for PBXNativeTarget "TOCropViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A675D1851E61C90C0044EA46 /* Debug */,
+				A675D1861E61C90C0044EA46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
