@@ -45,7 +45,7 @@ open class ImagePickerController: UIViewController {
                     self?.showPhotoLibraryController()
 //                    self?.dismiss(animated: false, completion: nil)
                 default:
-                    self?.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: true, completion: nil)
                 }
             }
         }
