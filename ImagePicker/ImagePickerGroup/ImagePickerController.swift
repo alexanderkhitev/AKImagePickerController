@@ -474,9 +474,13 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-//        let x = TOCr
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
+
+        let cropViewController = TOCropViewController(croppingStyle: .circular, image: selectedImage)
+//        cropViewController.croppingStyle.
+        present(cropViewController, animated: true, completion: nil)
     }
  
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
