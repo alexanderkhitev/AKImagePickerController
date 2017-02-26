@@ -473,6 +473,9 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
     // MARK: - Image Picker delegate
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+//        let x = TOCr
+        
         dismiss(animated: true, completion: nil)
     }
  
