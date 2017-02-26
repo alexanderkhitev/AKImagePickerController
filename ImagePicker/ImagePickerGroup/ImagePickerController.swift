@@ -479,6 +479,7 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         dismiss(animated: false, completion: nil)
 
         let cropViewController = TOCropViewController(croppingStyle: .circular, image: selectedImage)
+        cropViewController.delegate = self
 //        cropViewController.croppingStyle.
         present(cropViewController, animated: true, completion: nil)
     }
@@ -487,4 +488,17 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+// MARK: - TOCropViewController Delegate 
+
+extension ImagePickerController: TOCropViewControllerDelegate {
+    
+    public func cropViewController(_ cropViewController: TOCropViewController, didFinishCancelled cancelled: Bool) {
+        
+    }
+    
+    public func cropViewController(_ cropViewController: TOCropViewController, didCropImageTo cropRect: CGRect, angle: Int) {
+        
+    }
 }
