@@ -327,13 +327,12 @@ extension ImagePickerController: UICollectionViewDataSource {
 extension ImagePickerController: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        debugPrint("didSelectItemAt")
         if indexPath.row == 0 {
             // this is a camera
             presentCameraController()
+        } else {
+            presentCropControllerFromAsset(indexPath)
         }
-        
-//        delegate?.controller?(self, didSelectAsset: selectedAsset)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -449,7 +448,7 @@ extension ImagePickerController: CameraControllerViewControllerDelegate {
     
 }
 
-// MARK: - Image picker 
+// MARK: - Image picker
 
 extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -496,6 +495,28 @@ extension ImagePickerController: TOCropViewControllerDelegate {
             }
         }
      
+    }
+    
+}
+
+extension ImagePickerController {
+    
+    fileprivate func presentCropControllerFromAsset(_ indexPath: IndexPath) {
+        let asset = fetchResult[indexPath.row - 1]
+        
+        
+        let targetSize = CGSize(width: asset.pixelWidth * 3, height: asset.pixelHeight * 3)
+        
+        debugPrint("targetSize", targetSize)
+        
+        imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .default, options: nil) { [weak self] (image, data) in
+            guard image != nil else { return }
+            let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
+            cropViewController.delegate = self
+            
+            self?.present(cropViewController, animated: true, completion: nil)
+        }
+        
     }
     
 }

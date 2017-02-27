@@ -12,6 +12,10 @@ import Photos
 
 class ViewController: UIViewController {
     
+    // MARK: - IBOutlet
+    
+    @IBOutlet fileprivate weak var avatarImageView: UIImageView!
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -24,7 +28,7 @@ class ViewController: UIViewController {
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.widthAnchor.constraint(equalToConstant: 150).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         button.addTarget(self, action: #selector(presentImagePickerSheet(_:)), for: .touchUpInside)
     }
     
@@ -57,6 +61,7 @@ extension ViewController: ImagePickerControllerDelegate {
 
     func imagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int) {
         debugPrint("imagePickerController", image, "cropRect", cropRect)
+        avatarImageView.image = image 
     }
     
 }
