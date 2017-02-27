@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A602BBA61E5ECFB4003713E9 /* ImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = A602BBA41E5ECFB4003713E9 /* ImagePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A602BBAE1E5ED9FF003713E9 /* CameraControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */; };
+		A602BBAE1E5ED9FF003713E9 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAD1E5ED9FF003713E9 /* CameraViewController.swift */; };
 		A602BBB01E5EDA32003713E9 /* CameraSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */; };
 		A602BBB21E5EDA53003713E9 /* CameraSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBB11E5EDA53003713E9 /* CameraSliderDelegate.swift */; };
 		A602BBBE1E5EDAA4003713E9 /* CameraEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A602BBB41E5EDAA4003713E9 /* CameraEngine.h */; };
@@ -121,9 +121,9 @@
 		A67A12891E632F62002923CE /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A125E1E632F62002923CE /* TOCropView.m */; };
 		A67A128A1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12601E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A128B1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12631E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
+		A68B5A0C1E64E75900654CC7 /* CameraViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5A0B1E64E75900654CC7 /* CameraViewControllerDelegate.swift */; };
 		A6BA27DE1E5EE3F400A61627 /* ImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; };
 		A6BA27DF1E5EE3F400A61627 /* ImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6BA27E41E5F34B300A61627 /* CameraControllerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,7 +154,7 @@
 		A602BBA11E5ECFB4003713E9 /* ImagePickerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImagePickerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A602BBA41E5ECFB4003713E9 /* ImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		A602BBA51E5ECFB4003713E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControllerViewController.swift; sourceTree = "<group>"; };
+		A602BBAD1E5ED9FF003713E9 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSlider.swift; sourceTree = "<group>"; };
 		A602BBB11E5EDA53003713E9 /* CameraSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSliderDelegate.swift; sourceTree = "<group>"; };
 		A602BBB41E5EDAA4003713E9 /* CameraEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraEngine.h; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 		A67A125E1E632F62002923CE /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
 		A67A12611E632F62002923CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		A67A12641E632F62002923CE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
-		A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControllerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A68B5A0B1E64E75900654CC7 /* CameraViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,10 +338,10 @@
 		A602BBAC1E5ED9C5003713E9 /* CemaraGroup */ = {
 			isa = PBXGroup;
 			children = (
-				A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */,
+				A68B5A0A1E64E6DC00654CC7 /* Delegates */,
+				A602BBAD1E5ED9FF003713E9 /* CameraViewController.swift */,
 				A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */,
 				A602BBB11E5EDA53003713E9 /* CameraSliderDelegate.swift */,
-				A6BA27E31E5F34B200A61627 /* CameraControllerViewControllerDelegate.swift */,
 			);
 			path = CemaraGroup;
 			sourceTree = "<group>";
@@ -867,6 +867,14 @@
 			path = "zh-Hant.lproj";
 			sourceTree = "<group>";
 		};
+		A68B5A0A1E64E6DC00654CC7 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A68B5A0B1E64E75900654CC7 /* CameraViewControllerDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1117,14 +1125,14 @@
 				A602BBC61E5EDAA4003713E9 /* CameraEngineVideoEncoder.swift in Sources */,
 				A602BBCE1E5EDAFF003713E9 /* SheetActionCollectionViewCell.swift in Sources */,
 				A602BBE41E5EDB69003713E9 /* PreviewSupplementaryView.swift in Sources */,
-				A6BA27E41E5F34B300A61627 /* CameraControllerViewControllerDelegate.swift in Sources */,
+				A68B5A0C1E64E75900654CC7 /* CameraViewControllerDelegate.swift in Sources */,
 				A602BBD11E5EDAFF003713E9 /* SheetController.swift in Sources */,
 				A602BBBF1E5EDAA4003713E9 /* CameraEngine.swift in Sources */,
 				A602BBD01E5EDAFF003713E9 /* SheetCollectionViewLayout.swift in Sources */,
 				A602BBC51E5EDAA4003713E9 /* CameraEngineMetadataOutput.swift in Sources */,
 				A602BBB21E5EDA53003713E9 /* CameraSliderDelegate.swift in Sources */,
 				A67A12761E632F62002923CE /* TOCropViewControllerTransitioning.m in Sources */,
-				A602BBAE1E5ED9FF003713E9 /* CameraControllerViewController.swift in Sources */,
+				A602BBAE1E5ED9FF003713E9 /* CameraViewController.swift in Sources */,
 				A602BBC01E5EDAA4003713E9 /* CameraEngineCaptureOutput.swift in Sources */,
 				A645B0011E6458B400E2A0D9 /* ImagePickerControllerDelegate.swift in Sources */,
 				A602BBDA1E5EDB34003713E9 /* ImagePickerLiveCameraCollectionCell.swift in Sources */,

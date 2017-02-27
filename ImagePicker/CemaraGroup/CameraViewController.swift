@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreMotion
 
-class CameraControllerViewController: UIViewController {
+class CameraViewController: UIViewController {
     
     // MARK: - UI
     
@@ -63,7 +63,7 @@ class CameraControllerViewController: UIViewController {
     
     // MARK: - Delegate
     
-    weak var delegate: CameraControllerViewControllerDelegate?
+    weak var delegate: CameraViewControllerDelegate?
     
     // MARK: - Hidding data
     
@@ -351,7 +351,7 @@ class CameraControllerViewController: UIViewController {
 
 // MARK: - Camera
 
-extension CameraControllerViewController {
+extension CameraViewController {
     
     // MARK: - Flash
     
@@ -420,9 +420,12 @@ extension CameraControllerViewController {
     }
     
     @objc fileprivate func shotAction() {
-        cameraEngine.capturePhoto { (image, error) -> (Void) in
+        cameraEngine.capturePhoto { [weak self] (image, error) -> (Void) in
             if error == nil {
                 debugPrint("Here is an image")
+                guard image != nil else { return }
+                guard self != nil else { return }
+                self?.delegate?.didCapturePhoto?(self!, photo: image!)
             } else {
                 debugPrint("error", error!.localizedDescription)
             }
@@ -480,7 +483,7 @@ extension CameraControllerViewController {
 
 // MARK: - Camera Slider Delegate
 
-extension CameraControllerViewController: CameraSliderDelegate {
+extension CameraViewController: CameraSliderDelegate {
     
     func didChangeValue(_ value: CGFloat) {
         cameraEngine.cameraZoomFactor = value
@@ -490,7 +493,7 @@ extension CameraControllerViewController: CameraSliderDelegate {
 
 // MARK: - Orientation 
 
-extension CameraControllerViewController {
+extension CameraViewController {
     
     fileprivate func detectHideOrientation() {
         coreMotionManager.accelerometerUpdateInterval = 0.1
@@ -646,7 +649,7 @@ extension CameraControllerViewController {
 
 // MARK: - Navigation
 
-extension CameraControllerViewController {
+extension CameraViewController {
     
     @objc fileprivate func dismissAction() {
         cameraSlider.isHidden = true

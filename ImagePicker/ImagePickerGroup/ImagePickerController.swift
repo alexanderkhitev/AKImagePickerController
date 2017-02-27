@@ -422,7 +422,7 @@ extension ImagePickerController: UIViewControllerTransitioningDelegate {
 extension ImagePickerController {
     
     fileprivate func presentCameraController() {
-        let cameraController = CameraControllerViewController()
+        let cameraController = CameraViewController()
         cameraController.delegate = self
         cameraController.cameraEngine = cameraEngine
         cameraController.startOrientation = UIDevice.current.orientation
@@ -449,12 +449,22 @@ extension ImagePickerController {
     
 }
 
-// MARK: - Delegate
+// MARK: - CameraViewControllerDelegate Delegate
 
-extension ImagePickerController: CameraControllerViewControllerDelegate {
+extension ImagePickerController: CameraViewControllerDelegate {
     
     func willHide() {
         returnCameraLayerToCell()
+    }
+    
+    func didCapturePhoto(_ cameraViewController: CameraViewController, photo: UIImage) {
+        currentImageSource = .camera
+        
+        let cropController = TOCropViewController(croppingStyle: .circular, image: photo)
+        cropController.delegate = self
+        cropController.toolbar.cancelTextButton.setTitle("Retake", for: .normal)
+        
+        cameraViewController.present(cropController, animated: true, completion: nil)
     }
     
 }
@@ -476,7 +486,6 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
 
         let cropViewController = TOCropViewController(croppingStyle: .circular, image: selectedImage)
         cropViewController.delegate = self
-        
         currentImageSource = .photoLibrary
         
         picker.pushViewController(cropViewController, animated: true)
