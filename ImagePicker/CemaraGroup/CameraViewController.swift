@@ -28,6 +28,18 @@ class CameraViewController: UIViewController {
     fileprivate let flashOnButton = UIButton(type: .custom)
     fileprivate let flashOffButton = UIButton(type: .custom)
     
+    fileprivate lazy var focusAnimationView: UIView = {
+        let focusAnimationView = UIView()
+        focusAnimationView.frame.size = CGSize(width: 120, height: 120)
+        focusAnimationView.layer.cornerRadius = 60
+        focusAnimationView.layer.borderWidth = 2
+        focusAnimationView.layer.borderColor = UIColor.white.cgColor
+        focusAnimationView.layer.zPosition = 500
+        focusAnimationView.backgroundColor = UIColor.clear
+        focusAnimationView.isHidden = true
+        return focusAnimationView
+    }()
+    
     // Slider
     
     fileprivate let cameraSlider = CameraSlider(frame: .zero)
@@ -173,6 +185,9 @@ class CameraViewController: UIViewController {
         topBar.addSubview(flashOnButton)
         flashOffButton.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(flashOffButton)
+        
+        // For camera focus
+        cameraPreviewView.addSubview(focusAnimationView)
     }
     
     private func setupUIElementsPositions() {
@@ -480,6 +495,19 @@ extension CameraViewController {
     @objc private func focus(_ tapGestureRecognizer: UITapGestureRecognizer) {
         let point = tapGestureRecognizer.location(in: cameraPreviewView)
         debugPrint("point", point)
+        
+        // animation
+        
+        focusAnimationView.frame.origin = CGPoint(x: point.x - 60, y: point.y - 60)
+        focusAnimationView.isHidden = false
+        
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.focusAnimationView.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+        }) { [weak self] (completion) in
+            self?.focusAnimationView.isHidden = true
+            self?.focusAnimationView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        
         cameraEngine.focus(point)
     }
     
