@@ -32,18 +32,7 @@ class ViewController: UIViewController {
     
     
     func presentImagePickerSheet(_ gestureRecognizer: UITapGestureRecognizer) {
-        let presentImagePickerController: (UIImagePickerControllerSourceType) -> () = { source in
-            let controller = UIImagePickerController()
-            controller.delegate = self
-            var sourceType = source
-            if (!UIImagePickerController.isSourceTypeAvailable(sourceType)) {
-                sourceType = .photoLibrary
-            }
-            controller.sourceType = sourceType
-            
-            self.present(controller, animated: true, completion: nil)
-        }
-        
+
         let imagePickerController = ImagePickerController(mediaType: .image)
         imagePickerController.delegate = self
         
@@ -63,39 +52,11 @@ class ViewController: UIViewController {
     
 }
 
-// MARK: - UIImagePickerControllerDelegate
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-}
-
 // MARK: - ImagePickerSheetControllerDelegate
 extension ViewController: ImagePickerControllerDelegate {
-    
-    func controllerWillEnlargePreview(_ controller: ImagePickerController) {
-        print("Will enlarge the preview")
-    }
-    
-    func controllerDidEnlargePreview(_ controller: ImagePickerController) {
-        print("Did enlarge the preview")
-    }
-    
-    func controller(_ controller: ImagePickerController, willSelectAsset asset: PHAsset) {
-        print("Will select an asset")
-    }
-    
-    func controller(_ controller: ImagePickerController, didSelectAsset asset: PHAsset) {
-        print("Did select an asset")
-    }
-    
-    func controller(_ controller: ImagePickerController, willDeselectAsset asset: PHAsset) {
-        print("Will deselect an asset")
-    }
-    
-    func controller(_ controller: ImagePickerController, didDeselectAsset asset: PHAsset) {
-        print("Did deselect an asset")
+
+    func imagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int) {
+        debugPrint("imagePickerController", image, "cropRect", cropRect)
     }
     
 }

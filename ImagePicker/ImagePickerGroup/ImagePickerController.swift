@@ -102,7 +102,7 @@ open class ImagePickerController: UIViewController {
     
     fileprivate var cameraEngine = CameraEngine()
     
-    // MARK: - controllers      let photoLibraryController = UIImagePickerController()
+    // MARK: - Controllers
     
     fileprivate lazy var photoLibraryController: UIImagePickerController = {
         let photoLibraryController = UIImagePickerController()
@@ -490,9 +490,12 @@ extension ImagePickerController: TOCropViewControllerDelegate {
             delegate?.imagePickerController!(image, with: cropRect, angle: angle)
         }
         
-        // TODO: - Make animation
-        cropViewController.dismiss(animated: false, completion: nil)
-        dismiss(animated: false, completion: nil)
+        cropViewController.dismiss(animated: false) { [weak self] in
+            self?.photoLibraryController.dismiss(animated: false) {
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
+     
     }
     
 }
