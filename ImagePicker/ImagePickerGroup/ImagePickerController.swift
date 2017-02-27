@@ -524,13 +524,14 @@ extension ImagePickerController {
         let asset = fetchResult[indexPath.row - 1]
         let targetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
         
-        debugPrint("targetSize", targetSize)
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
         
-        var isFirstPoorQuality = false
-        
-        imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .default, options: nil) { [weak self] (image, data) in
+        imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .default, options: options) { [weak self] (image, data) in
             guard image != nil else { return }
             guard self != nil else  { return }
+            
+            debugPrint("image block", image!.size, image!.renderingMode)
             
             let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
             cropViewController.delegate = self
@@ -538,10 +539,7 @@ extension ImagePickerController {
             self?.currentImageSource = .cell
             
             DispatchQueue.main.async {
-                if isFirstPoorQuality {
-                    self?.present(cropViewController, animated: false, completion: nil)
-                }
-                isFirstPoorQuality = true
+                self?.present(cropViewController, animated: false, completion: nil)
             }
         }
     }
