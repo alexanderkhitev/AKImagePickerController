@@ -43,6 +43,7 @@
 		A602BC0C1E5EE223003713E9 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC091E5EE223003713E9 /* AnimationController.swift */; };
 		A602BC0D1E5EE223003713E9 /* ImagePickerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */; };
 		A602BC0E1E5EE223003713E9 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */; };
+		A645B0011E6458B400E2A0D9 /* ImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645B0001E6458B300E2A0D9 /* ImagePickerControllerDelegate.swift */; };
 		A675D1D51E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D1881E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
 		A675D1D61E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D18B1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
 		A675D1D71E61C9250044EA46 /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A675D18E1E61C9250044EA46 /* TOCropViewControllerLocalizable.strings */; };
@@ -190,6 +191,7 @@
 		A602BC091E5EE223003713E9 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerAction.swift; sourceTree = "<group>"; };
 		A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		A645B0001E6458B300E2A0D9 /* ImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerControllerDelegate.swift; sourceTree = "<group>"; };
 		A675D17F1E61C90C0044EA46 /* TOCropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOCropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A675D1821E61C90C0044EA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A675D1891E61C9250044EA46 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -321,11 +323,11 @@
 		A602BBA31E5ECFB4003713E9 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				A67A12151E632E88002923CE /* TOCropViewController */,
 				A602BC081E5EE1ED003713E9 /* ImagePickerGroup */,
 				A602BBC81E5EDACA003713E9 /* SheetGroup */,
 				A602BBB31E5EDA63003713E9 /* CameraEngineGroup */,
 				A602BBAC1E5ED9C5003713E9 /* CemaraGroup */,
+				A67A12151E632E88002923CE /* TOCropViewController */,
 				A602BBE51E5EDBDA003713E9 /* Resource */,
 				A602BBA41E5ECFB4003713E9 /* ImagePickerController.h */,
 				A602BBA51E5ECFB4003713E9 /* Info.plist */,
@@ -421,11 +423,20 @@
 		A602BC081E5EE1ED003713E9 /* ImagePickerGroup */ = {
 			isa = PBXGroup;
 			children = (
+				A645AFFF1E64588000E2A0D9 /* Delegates */,
 				A602BC091E5EE223003713E9 /* AnimationController.swift */,
 				A602BC0A1E5EE223003713E9 /* ImagePickerAction.swift */,
 				A602BC0B1E5EE223003713E9 /* ImagePickerController.swift */,
 			);
 			path = ImagePickerGroup;
+			sourceTree = "<group>";
+		};
+		A645AFFF1E64588000E2A0D9 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A645B0001E6458B300E2A0D9 /* ImagePickerControllerDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		A675D1801E61C90C0044EA46 /* TOCropViewController */ = {
@@ -1115,6 +1126,7 @@
 				A67A12761E632F62002923CE /* TOCropViewControllerTransitioning.m in Sources */,
 				A602BBAE1E5ED9FF003713E9 /* CameraControllerViewController.swift in Sources */,
 				A602BBC01E5EDAA4003713E9 /* CameraEngineCaptureOutput.swift in Sources */,
+				A645B0011E6458B400E2A0D9 /* ImagePickerControllerDelegate.swift in Sources */,
 				A602BBDA1E5EDB34003713E9 /* ImagePickerLiveCameraCollectionCell.swift in Sources */,
 				A602BBCF1E5EDAFF003713E9 /* SheetCollectionViewCell.swift in Sources */,
 				A67A12741E632F62002923CE /* TOCroppedImageAttributes.m in Sources */,

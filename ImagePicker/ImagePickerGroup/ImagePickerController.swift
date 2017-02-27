@@ -18,19 +18,6 @@ public enum ImagePickerMediaType {
     case imageAndVideo
 }
 
-@objc public protocol ImagePickerControllerDelegate {
-    
-    @objc optional func controllerWillEnlargePreview(_ controller: ImagePickerController)
-    @objc optional func controllerDidEnlargePreview(_ controller: ImagePickerController)
-    
-    @objc optional func controller(_ controller: ImagePickerController, willSelectAsset asset: PHAsset)
-    @objc optional func controller(_ controller: ImagePickerController, didSelectAsset asset: PHAsset)
-    
-    @objc optional func controller(_ controller: ImagePickerController, willDeselectAsset asset: PHAsset)
-    @objc optional func controller(_ controller: ImagePickerController, didDeselectAsset asset: PHAsset)
-    
-}
-
 open class ImagePickerController: UIViewController {
     
     fileprivate lazy var sheetController: SheetController = {
@@ -115,9 +102,14 @@ open class ImagePickerController: UIViewController {
     
     fileprivate var cameraEngine = CameraEngine()
     
-    // MARK: - Cells 
+    // MARK: - controllers      let photoLibraryController = UIImagePickerController()
     
-    fileprivate var cameraLiveCell: ImagePickerLiveCameraCollectionCell!
+    fileprivate lazy var photoLibraryController: UIImagePickerController = {
+        let photoLibraryController = UIImagePickerController()
+        photoLibraryController.sourceType = .photoLibrary
+        photoLibraryController.delegate = self
+        return photoLibraryController
+    }()
     
     
     /// Whether the image preview has been elarged. This is the case when at least once
@@ -319,7 +311,6 @@ extension ImagePickerController: UICollectionViewDataSource {
         if indexPath.row == 0 {
             let cell = imagePickerLiveCameraCollectionCell(collectionView, indexPath: indexPath)
             
-            cameraLiveCell = cell
             return cell
         } else {
             let cell = imagePickerCollectionCell(collectionView, indexPath: indexPath)
@@ -463,10 +454,6 @@ extension ImagePickerController: CameraControllerViewControllerDelegate {
 extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     fileprivate func showPhotoLibraryController() {
-        let photoLibraryController = UIImagePickerController()
-        photoLibraryController.sourceType = .photoLibrary
-        photoLibraryController.delegate = self
-        
         present(photoLibraryController, animated: true, completion: nil)
     }
     
@@ -497,17 +484,15 @@ extension ImagePickerController: TOCropViewControllerDelegate {
         cropViewController.dismiss(animated: true, completion: nil)
     }
     
-    public func cropViewController(_ cropViewController: TOCropViewController, didCropImageTo cropRect: CGRect, angle: Int) {
-        debugPrint("didCropImageTo", cropRect, angle)
-
-    }
-    
-    public func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
-        debugPrint("didCropTo 1", image, cropRect, angle)
-    }
-    
     public func cropViewController(_ cropViewController: TOCropViewController, didCropToCircularImage image: UIImage, with cropRect: CGRect, angle: Int) {
-        debugPrint("didCropToCircularImage", image, cropRect, angle)
+        
+        if delegate != nil {
+            delegate?.imagePickerController!(image, with: cropRect, angle: angle)
+        }
+        
+        // TODO: - Make animation
+        cropViewController.dismiss(animated: false, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
 }
