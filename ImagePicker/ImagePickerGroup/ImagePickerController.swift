@@ -507,12 +507,6 @@ extension ImagePickerController: TOCropViewControllerDelegate {
             dismiss(animated: false, completion: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
             })
-
-//            cropViewController.dismiss(animated: false) { [weak self] in
-//                self?.photoLibraryController.dismiss(animated: false) {
-//                    self?.dismiss(animated: true, completion: nil)
-//                }
-//            }
         case .cell:
             cropViewController.dismiss(animated: true, completion: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
@@ -529,20 +523,21 @@ extension ImagePickerController {
     
     fileprivate func presentCropControllerFromCell(_ indexPath: IndexPath) {
         let asset = fetchResult[indexPath.row - 1]
-        
         let targetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
         
         debugPrint("targetSize", targetSize)
         
         imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .default, options: nil) { [weak self] (image, data) in
             guard image != nil else { return }
-            let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
-            cropViewController.delegate = self
             
             self?.currentImageSource = .cell
-            UIApplication.topViewController()?.present(cropViewController, animated: true, completion: nil)
+            
+            DispatchQueue.main.async {
+                let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
+                cropViewController.delegate = self
+                self?.present(cropViewController, animated: true, completion: nil)
+            }
         }
-        
     }
     
 }
