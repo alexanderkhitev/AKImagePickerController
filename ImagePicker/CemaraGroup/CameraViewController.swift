@@ -39,6 +39,7 @@ class CameraViewController: UIViewController {
     // MARK: - Flags
     
     fileprivate var areTorchElementsVisibles = false
+    private var isSetupElementsLayout = false
     
     // MARK: - Data
     
@@ -108,7 +109,10 @@ class CameraViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        setupUIElementsPositions()
+        if !isSetupElementsLayout {
+            setupUIElementsPositions()
+            isSetupElementsLayout = true 
+        }
     }
     
     override var prefersStatusBarHidden: Bool {

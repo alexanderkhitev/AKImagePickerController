@@ -511,7 +511,7 @@ extension ImagePickerController: TOCropViewControllerDelegate {
             delegate?.imagePickerController!(image, with: cropRect, angle: angle)
         }
         
-        
+        // TODO: - Think how to make it different
         
         switch currentImageSource {
         case .photoLibrary:
@@ -525,6 +525,11 @@ extension ImagePickerController: TOCropViewControllerDelegate {
             })
             break
         case .camera:
+            cropViewController.dismiss(animated: false, completion: { [weak self] in
+                self?.dismiss(animated: false, completion: {
+                    self?.dismiss(animated: true, completion: nil)
+                })
+            })
             break
         }
     }
