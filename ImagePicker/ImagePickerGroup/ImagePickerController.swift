@@ -374,7 +374,11 @@ extension ImagePickerController {
         let asset = fetchResult.object(at: indexPath.row - 1) //- 1) - 1 because camera view
         
         cell.representedAssetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: 95, height: 95), contentMode: .aspectFill, options: nil) { (image, info) in
+        
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 95, height: 95), contentMode: .aspectFill, options: options) { (image, info) in
             if cell.representedAssetIdentifier == asset.localIdentifier {
                 cell.photoImageView?.image = image
             }
@@ -530,8 +534,6 @@ extension ImagePickerController {
         imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .default, options: options) { [weak self] (image, data) in
             guard image != nil else { return }
             guard self != nil else  { return }
-            
-            debugPrint("image block", image!.size, image!.renderingMode)
             
             let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
             cropViewController.delegate = self
