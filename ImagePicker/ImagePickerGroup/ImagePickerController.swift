@@ -111,6 +111,13 @@ open class ImagePickerController: UIViewController {
         return photoLibraryController
     }()
     
+    // MARK: - Enums 
+    
+    fileprivate enum Source: String {
+        case camera, photoLibrary, cell
+    }
+    
+    fileprivate var currentImageSource = Source.camera
     
     /// Whether the image preview has been elarged. This is the case when at least once
     /// image has been selected.
@@ -331,7 +338,7 @@ extension ImagePickerController: UICollectionViewDelegate {
             // this is a camera
             presentCameraController()
         } else {
-            presentCropControllerFromAsset(indexPath)
+            presentCropControllerFromCell(indexPath)
         }
     }
     
@@ -466,7 +473,10 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         let cropViewController = TOCropViewController(croppingStyle: .circular, image: selectedImage)
         cropViewController.delegate = self
         
-        picker.present(cropViewController, animated: true, completion: nil)
+        currentImageSource = .photoLibrary
+        
+        picker.pushViewController(cropViewController, animated: true)
+//        picker.present(cropViewController, animated: true, completion: nil)
     }
  
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -489,23 +499,38 @@ extension ImagePickerController: TOCropViewControllerDelegate {
             delegate?.imagePickerController!(image, with: cropRect, angle: angle)
         }
         
-        cropViewController.dismiss(animated: false) { [weak self] in
-            self?.photoLibraryController.dismiss(animated: false) {
+        
+        
+        switch currentImageSource {
+        case .photoLibrary:
+            photoLibraryController.popViewController(animated: false)
+            dismiss(animated: false, completion: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
-            }
+            })
+
+//            cropViewController.dismiss(animated: false) { [weak self] in
+//                self?.photoLibraryController.dismiss(animated: false) {
+//                    self?.dismiss(animated: true, completion: nil)
+//                }
+//            }
+        case .cell:
+            cropViewController.dismiss(animated: true, completion: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            break
+        case .camera:
+            break
         }
-     
     }
     
 }
 
 extension ImagePickerController {
     
-    fileprivate func presentCropControllerFromAsset(_ indexPath: IndexPath) {
+    fileprivate func presentCropControllerFromCell(_ indexPath: IndexPath) {
         let asset = fetchResult[indexPath.row - 1]
         
-        
-        let targetSize = CGSize(width: asset.pixelWidth * 3, height: asset.pixelHeight * 3)
+        let targetSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
         
         debugPrint("targetSize", targetSize)
         
@@ -514,9 +539,28 @@ extension ImagePickerController {
             let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
             cropViewController.delegate = self
             
-            self?.present(cropViewController, animated: true, completion: nil)
+            self?.currentImageSource = .cell
+            UIApplication.topViewController()?.present(cropViewController, animated: true, completion: nil)
         }
         
     }
     
+}
+
+extension UIApplication {
+    
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(presented)
+        }
+        return base
+    }
 }
