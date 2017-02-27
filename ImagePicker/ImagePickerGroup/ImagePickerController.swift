@@ -480,11 +480,6 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         let cropViewController = TOCropViewController(croppingStyle: .circular, image: selectedImage)
         cropViewController.delegate = self
         
-        
-        if cropViewController.croppingStyle == .circular {
-            debugPrint("cropViewController.croppingStyle == .circular")
-        }
-        
         picker.present(cropViewController, animated: true, completion: nil)
     }
  
@@ -508,11 +503,11 @@ extension ImagePickerController: TOCropViewControllerDelegate {
     }
     
     public func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
-        debugPrint("image 1", image, cropRect, angle)
+        debugPrint("didCropTo 1", image, cropRect, angle)
     }
     
     public func cropViewController(_ cropViewController: TOCropViewController, didCropToCircularImage image: UIImage, with cropRect: CGRect, angle: Int) {
-        debugPrint("image", image, cropRect, angle)
+        debugPrint("didCropToCircularImage", image, cropRect, angle)
     }
     
 }
