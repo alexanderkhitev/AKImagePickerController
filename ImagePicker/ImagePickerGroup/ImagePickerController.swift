@@ -473,15 +473,19 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
     // MARK: - Image Picker delegate
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        
-        dismiss(animated: false, completion: nil)
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
+        }
 
         let cropViewController = TOCropViewController(croppingStyle: .circular, image: selectedImage)
         cropViewController.delegate = self
-//        cropViewController.croppingStyle.
-        present(cropViewController, animated: true, completion: nil)
+        
+        
+        if cropViewController.croppingStyle == .circular {
+            debugPrint("cropViewController.croppingStyle == .circular")
+        }
+        
+        picker.present(cropViewController, animated: true, completion: nil)
     }
  
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -495,10 +499,20 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
 extension ImagePickerController: TOCropViewControllerDelegate {
     
     public func cropViewController(_ cropViewController: TOCropViewController, didFinishCancelled cancelled: Bool) {
-        
+        cropViewController.dismiss(animated: true, completion: nil)
     }
     
     public func cropViewController(_ cropViewController: TOCropViewController, didCropImageTo cropRect: CGRect, angle: Int) {
-        
+        debugPrint("didCropImageTo", cropRect, angle)
+
     }
+    
+    public func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
+        debugPrint("image 1", image, cropRect, angle)
+    }
+    
+    public func cropViewController(_ cropViewController: TOCropViewController, didCropToCircularImage image: UIImage, with cropRect: CGRect, angle: Int) {
+        debugPrint("image", image, cropRect, angle)
+    }
+    
 }

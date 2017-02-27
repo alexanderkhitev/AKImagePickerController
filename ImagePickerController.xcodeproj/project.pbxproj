@@ -11,7 +11,7 @@
 		A602BBAE1E5ED9FF003713E9 /* CameraControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAD1E5ED9FF003713E9 /* CameraControllerViewController.swift */; };
 		A602BBB01E5EDA32003713E9 /* CameraSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBAF1E5EDA32003713E9 /* CameraSlider.swift */; };
 		A602BBB21E5EDA53003713E9 /* CameraSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBB11E5EDA53003713E9 /* CameraSliderDelegate.swift */; };
-		A602BBBE1E5EDAA4003713E9 /* CameraEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A602BBB41E5EDAA4003713E9 /* CameraEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A602BBBE1E5EDAA4003713E9 /* CameraEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A602BBB41E5EDAA4003713E9 /* CameraEngine.h */; };
 		A602BBBF1E5EDAA4003713E9 /* CameraEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBB51E5EDAA4003713E9 /* CameraEngine.swift */; };
 		A602BBC01E5EDAA4003713E9 /* CameraEngineCaptureOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBB61E5EDAA4003713E9 /* CameraEngineCaptureOutput.swift */; };
 		A602BBC11E5EDAA4003713E9 /* CameraEngineDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602BBB71E5EDAA4003713E9 /* CameraEngineDevice.swift */; };
@@ -93,26 +93,26 @@
 		A67A126E1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12301E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A126F1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12331E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A12701E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12361E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
-		A67A12711E632F62002923CE /* TOActivityCroppedImageProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A12391E632F62002923CE /* TOActivityCroppedImageProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67A12711E632F62002923CE /* TOActivityCroppedImageProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A12391E632F62002923CE /* TOActivityCroppedImageProvider.h */; };
 		A67A12721E632F62002923CE /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A123A1E632F62002923CE /* TOActivityCroppedImageProvider.m */; };
-		A67A12731E632F62002923CE /* TOCroppedImageAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A123B1E632F62002923CE /* TOCroppedImageAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67A12731E632F62002923CE /* TOCroppedImageAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A123B1E632F62002923CE /* TOCroppedImageAttributes.h */; };
 		A67A12741E632F62002923CE /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A123C1E632F62002923CE /* TOCroppedImageAttributes.m */; };
-		A67A12751E632F62002923CE /* TOCropViewControllerTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A123D1E632F62002923CE /* TOCropViewControllerTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67A12751E632F62002923CE /* TOCropViewControllerTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A123D1E632F62002923CE /* TOCropViewControllerTransitioning.h */; };
 		A67A12761E632F62002923CE /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A123E1E632F62002923CE /* TOCropViewControllerTransitioning.m */; };
-		A67A12771E632F62002923CE /* UIImage+CropRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A123F1E632F62002923CE /* UIImage+CropRotate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67A12771E632F62002923CE /* UIImage+CropRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A123F1E632F62002923CE /* UIImage+CropRotate.h */; };
 		A67A12781E632F62002923CE /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A12401E632F62002923CE /* UIImage+CropRotate.m */; };
 		A67A12791E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12421E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A127A1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12451E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A127B1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12481E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A127C1E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A124B1E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
-		A67A127D1E632F62002923CE /* TOCropViewController-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A124D1E632F62002923CE /* TOCropViewController-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67A127D1E632F62002923CE /* TOCropViewController-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A124D1E632F62002923CE /* TOCropViewController-Bridging-Header.h */; };
 		A67A127E1E632F62002923CE /* TOCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A124E1E632F62002923CE /* TOCropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A67A127F1E632F62002923CE /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A124F1E632F62002923CE /* TOCropViewController.m */; };
 		A67A12801E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12511E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A12811E632F62002923CE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A67A12541E632F62002923CE /* TOCropViewControllerLocalizable.strings */; };
 		A67A12821E632F62002923CE /* TOCropOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A12571E632F62002923CE /* TOCropOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A67A12831E632F62002923CE /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A12581E632F62002923CE /* TOCropOverlayView.m */; };
-		A67A12841E632F62002923CE /* TOCropScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A12591E632F62002923CE /* TOCropScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67A12841E632F62002923CE /* TOCropScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A12591E632F62002923CE /* TOCropScrollView.h */; };
 		A67A12851E632F62002923CE /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A125A1E632F62002923CE /* TOCropScrollView.m */; };
 		A67A12861E632F62002923CE /* TOCropToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = A67A125B1E632F62002923CE /* TOCropToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A67A12871E632F62002923CE /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A67A125C1E632F62002923CE /* TOCropToolbar.m */; };
@@ -865,16 +865,16 @@
 			files = (
 				A602BBA61E5ECFB4003713E9 /* ImagePickerController.h in Headers */,
 				A67A127E1E632F62002923CE /* TOCropViewController.h in Headers */,
+				A67A12821E632F62002923CE /* TOCropOverlayView.h in Headers */,
+				A67A12861E632F62002923CE /* TOCropToolbar.h in Headers */,
+				A67A12881E632F62002923CE /* TOCropView.h in Headers */,
 				A67A127D1E632F62002923CE /* TOCropViewController-Bridging-Header.h in Headers */,
 				A67A12841E632F62002923CE /* TOCropScrollView.h in Headers */,
 				A602BBBE1E5EDAA4003713E9 /* CameraEngine.h in Headers */,
 				A67A12731E632F62002923CE /* TOCroppedImageAttributes.h in Headers */,
-				A67A12821E632F62002923CE /* TOCropOverlayView.h in Headers */,
 				A67A12751E632F62002923CE /* TOCropViewControllerTransitioning.h in Headers */,
-				A67A12881E632F62002923CE /* TOCropView.h in Headers */,
 				A67A12711E632F62002923CE /* TOActivityCroppedImageProvider.h in Headers */,
 				A67A12771E632F62002923CE /* UIImage+CropRotate.h in Headers */,
-				A67A12861E632F62002923CE /* TOCropToolbar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
