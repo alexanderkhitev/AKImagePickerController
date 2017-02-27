@@ -476,7 +476,6 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         currentImageSource = .photoLibrary
         
         picker.pushViewController(cropViewController, animated: true)
-//        picker.present(cropViewController, animated: true, completion: nil)
     }
  
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -527,35 +526,24 @@ extension ImagePickerController {
         
         debugPrint("targetSize", targetSize)
         
+        var isFirstPoorQuality = false
+        
         imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .default, options: nil) { [weak self] (image, data) in
             guard image != nil else { return }
+            guard self != nil else  { return }
+            
+            let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
+            cropViewController.delegate = self
             
             self?.currentImageSource = .cell
             
             DispatchQueue.main.async {
-                let cropViewController = TOCropViewController(croppingStyle: .circular, image: image!)
-                cropViewController.delegate = self
-                self?.present(cropViewController, animated: true, completion: nil)
+                if isFirstPoorQuality {
+                    self?.present(cropViewController, animated: false, completion: nil)
+                }
+                isFirstPoorQuality = true
             }
         }
     }
     
-}
-
-extension UIApplication {
-    
-    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
-            return topViewController(nav.visibleViewController)
-        }
-        if let tab = base as? UITabBarController {
-            if let selected = tab.selectedViewController {
-                return topViewController(selected)
-            }
-        }
-        if let presented = base?.presentedViewController {
-            return topViewController(presented)
-        }
-        return base
-    }
 }
