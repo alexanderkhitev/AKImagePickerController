@@ -8,9 +8,11 @@
 
 import UIKit
 
-let sheetInset: CGFloat = 10
-
 class SheetController: NSObject {
+    
+    // MARK: - Data 
+    
+    fileprivate let sheetInset: CGFloat = 10
     
     fileprivate(set) lazy var sheetCollectionView: UICollectionView = {
         let layout = SheetCollectionViewLayout()
@@ -201,8 +203,7 @@ extension SheetController: UICollectionViewDataSource {
             previewCell.collectionView = previewCollectionView
             
             cell = previewCell
-        }
-        else {
+        } else {
             let action = actions[indexPath.item]
             let actionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(SheetActionCollectionViewCell.self), for: indexPath) as! SheetActionCollectionViewCell
             actionCell.textLabel.font = fontForAction(action)
@@ -211,13 +212,13 @@ extension SheetController: UICollectionViewDataSource {
             cell = actionCell
         }
         
-        cell.separatorVisible = (indexPath.section == 1)
+        cell.separatorVisible = true
         
         // iOS specific design
         (cell.roundedCorners, cell.backgroundInsets) = attributesForItemAtIndexPath(indexPath)
         cell.normalBackgroundColor = UIColor(white: 0.97, alpha: 1)
         cell.highlightedBackgroundColor = UIColor(white: 0.92, alpha: 1)
-        cell.separatorColor = UIColor(white: 0.84, alpha: 1)
+        cell.separatorColor = UIColor(red: 221/255, green: 223/255, blue: 226/255, alpha: 1)
         
         return cell
     }
@@ -234,6 +235,11 @@ extension SheetController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         handleAction(actions[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.impactOccurred()
     }
     
 }
