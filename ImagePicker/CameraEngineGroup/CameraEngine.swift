@@ -101,7 +101,17 @@ public class CameraEngine: NSObject {
         }
     }
     
+    // MARK: - Setting flags
+    
     public var isRequestMicroAccess = false
+    
+    public var isCameraEngineAvailable: Bool {
+        if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized {
+            return true
+        } else {
+            return false
+        }
+    }
     
     public lazy var previewLayer: AVCaptureVideoPreviewLayer! = {
         let layer =  AVCaptureVideoPreviewLayer(session: self.session)
@@ -281,9 +291,10 @@ public class CameraEngine: NSObject {
     
     public func startSession() {
         let session = self.session
-        
-        self.sessionQueue.async { () -> Void in
-            session.startRunning()
+        if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized {
+            sessionQueue.async { () -> Void in
+                session.startRunning()
+            }
         }
     }
     
@@ -420,7 +431,7 @@ public class CameraEngine: NSObject {
             fatalError("[CameraEngine] unable to add mic as InputDevice")
         }
         catch {
-            fatalError("[CameraEngine] error initInputDevice")
+//            fatalError("[CameraEngine] error initInputDevice")
         }
     }
     

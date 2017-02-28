@@ -9,7 +9,7 @@
 import Foundation
 import Photos
 
-let previewInset: CGFloat = 5
+//let previewInset: CGFloat = 5
 
 /// The media type an instance of ImagePickerSheetController can display
 public enum ImagePickerMediaType {
@@ -149,6 +149,8 @@ open class ImagePickerController: UIViewController {
         transitioningDelegate = self
         
         NotificationCenter.default.addObserver(sheetController, selector: #selector(SheetController.handleCancelAction), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(cameraAccessIsChanged), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
     deinit {
@@ -254,8 +256,7 @@ open class ImagePickerController: UIViewController {
             backgroundViewFrame.origin.y = -offset
             backgroundViewFrame.size.height += offset
             backgroundView.frame = backgroundViewFrame
-        }
-        else {
+        } else {
             backgroundView.frame = view.bounds
         }
         
@@ -272,6 +273,12 @@ open class ImagePickerController: UIViewController {
     
     fileprivate func reloadCurrentPreviewHeight(invalidateLayout invalidate: Bool) {
         sheetController.setPreviewHeight(minimumPreviewHeight, invalidateLayout: invalidate)
+    }
+    
+    // MARK: - Notification center functions 
+    
+    @objc private func cameraAccessIsChanged() {
+        previewPhotoCollectionView.reloadData()
     }
     
 }
@@ -293,7 +300,6 @@ extension ImagePickerController {
         let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"))
         previewPhotoCollectionView.register(liveNib, forCellWithReuseIdentifier: imagePickerLiveCameraCollectionCellIdentifier)
     }
-    
     
 }
 
@@ -332,8 +338,16 @@ extension ImagePickerController: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            // this is a camera
-            presentCameraController()
+            if cameraEngine.isCameraEngineAvailable {
+                // this is a camera
+                presentCameraController()
+            } else {
+                let alertController = UIAlertController(title: nil, message: "Please allow access to the camera in the device settings.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                present(alertController, animated: true, completion: nil)
+            }
         } else {
             presentCropControllerFromCell(indexPath)
         }
@@ -387,14 +401,21 @@ extension ImagePickerController {
     fileprivate func imagePickerLiveCameraCollectionCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> ImagePickerLiveCameraCollectionCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePickerLiveCameraCollectionCellIdentifier, for: indexPath) as! ImagePickerLiveCameraCollectionCell
         
-        cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 95, height: 95)
         
-        // camera orientation
+        if cameraEngine.isCameraEngineAvailable {
+            // for first launch
+            if !cameraEngine.session.isRunning {
+                cameraEngine.startSession()
+            }
+            
+            cameraEngine.previewLayer.frame = CGRect(x: 0, y: 0, width: 95, height: 95)
+            // camera orientation
+            
+            cameraEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
+            
+            cell.containerView.layer.addSublayer(cameraEngine.previewLayer)
+        }
         
-        cameraEngine.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
-
-        
-        cell.containerView.layer.addSublayer(cameraEngine.previewLayer)
         return cell
     }
     
