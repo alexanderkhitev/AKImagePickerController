@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "AKImagePickerController"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A short description of AKImagePickerController."
 
   # This description is used to generate tags and improve search results.
@@ -35,20 +35,13 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController.git", :tag => s.version }
 
-  s.source_files  = 'AKImagePickerController', 'AKImagePickerController/**/*.{h,m,swift}'
+  s.source_files  = 'AKImagePickerController/**/*.{h,m,swift}'
 
 # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
 
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
