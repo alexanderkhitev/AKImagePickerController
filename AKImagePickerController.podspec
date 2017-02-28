@@ -19,11 +19,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.1"
   s.summary      = "A short description of AKImagePickerController."
 
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "This is a Image Picker"
 
   s.homepage     = "https://github.com/alexsanderkhitev/AKImagePickerController"
@@ -54,7 +49,7 @@ Pod::Spec.new do |s|
   s.author             = { "Alexsander Khitev" => "alexsanderskywork@gmail.com" }
   # Or just: s.author    = "Alexsander Khitev"
   # s.authors            = { "Alexsander Khitev" => "alexsanderskywork@gmail.com" }
-  # s.social_media_url   = "https://twitter.com/devkhitev"
+  s.social_media_url   = "https://twitter.com/devkhitev"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -89,7 +84,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "AKImagePickerController", "AKImagePickerController/**/*.{h,m,swift}"
+  s.source_files  = "AKImagePickerController", "AKImagePickerController/AKImagePickerController/**/*.{h,m,swift}"
 
   s.exclude_files = "Classes/Exclude"
 
