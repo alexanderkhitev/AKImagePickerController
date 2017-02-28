@@ -583,13 +583,10 @@ extension CameraViewController {
                 guard self != nil else { return }
                 self?.launchDismissActions()
                 
-                debugPrint("elf!.isStartOrientationChanged", self!.isStartOrientationChanged, "self!.isStartOrientationPortrait", self!.isStartOrientationPortrait)
-                
                 if self!.isStartOrientationChanged == false && self!.isStartOrientationPortrait {
                     self?.hideAnimation(.portrait)
                     return
                 }
-                
                 
                 self?.hideAnimation(currentOrientation)
             }
