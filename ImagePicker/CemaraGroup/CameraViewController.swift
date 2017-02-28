@@ -339,28 +339,43 @@ class CameraViewController: UIViewController {
     @objc private func changeUIElementsPositions() {
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             if UIDevice.current.orientation == .landscapeLeft {
-                let rotation = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-                self?.switchCameraButton.transform = rotation
-                self?.flashSwitchImageView.transform = rotation
+                let transformRotation = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+                self?.switchCameraButton.transform = transformRotation
+                self?.flashSwitchImageView.transform = transformRotation
+                // mode buttons
+                self?.flashAutoButton.transform = transformRotation
+                self?.flashOnButton.transform = transformRotation
+                self?.flashOffButton.transform = transformRotation
             }
             if UIDevice.current.orientation == .landscapeRight {
                 let transformRotation = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
                 self?.switchCameraButton.transform = transformRotation
                 self?.flashSwitchImageView.transform = transformRotation
+                // mode buttons
+                self?.flashAutoButton.transform = transformRotation
+                self?.flashOnButton.transform = transformRotation
+                self?.flashOffButton.transform = transformRotation
             }
             
             if UIDevice.current.orientation == .portrait {
                 let transformRotation = CGAffineTransform(rotationAngle: 0)
                 self?.switchCameraButton.transform = transformRotation
                 self?.flashSwitchImageView.transform = transformRotation
+                // mode buttons
+                self?.flashAutoButton.transform = transformRotation
+                self?.flashOnButton.transform = transformRotation
+                self?.flashOffButton.transform = transformRotation
             }
             
             if UIDevice.current.orientation == .portraitUpsideDown {
                 let transformRotation = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
                 self?.switchCameraButton.transform = transformRotation
                 self?.flashSwitchImageView.transform = transformRotation
+                // mode buttons 
+                self?.flashAutoButton.transform = transformRotation
+                self?.flashOnButton.transform = transformRotation
+                self?.flashOffButton.transform = transformRotation
             }
-            
         }) { (completion) in
             
         }
@@ -408,6 +423,8 @@ extension CameraViewController {
         }
     }
     
+    // MARK: - Flash buttons
+    
     @objc fileprivate func autoTorchAction() {
         switchFlashModeElements()
         setupFlashMode(.auto)
@@ -432,6 +449,12 @@ extension CameraViewController {
         flashSwitchImageView.contentMode = .scaleAspectFill
     }
     
+    fileprivate func hideFlashModeButtons(_ isHidden: Bool) {
+        flashOnButton.isHidden = isHidden
+        flashAutoButton.isHidden = isHidden
+        flashOffButton.isHidden = isHidden
+    }
+    
     
     @objc fileprivate func switchCameraDevice() {
         cameraSlider.isHidden = true
@@ -439,6 +462,7 @@ extension CameraViewController {
     }
     
     @objc fileprivate func shotAction() {
+        hideFlashModeButtons(true)
         cameraEngine.capturePhoto { [weak self] (image, error) -> (Void) in
             if error == nil {
                 debugPrint("Here is an image")
