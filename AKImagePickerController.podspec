@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AKImagePickerController"
-  s.version      = "1.0.6"
+  s.version      = "1.0.7"
   s.summary      = "A short description of AKImagePickerController."
 
   s.description  = "This is an ImagePickerController"
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController.git", :tag => s.version }
 
-  s.source_files  = 'ImagePicker/**/*.{h,m,swift}'
+  s.source_files  = 'AKImagePickerController/**/*.{h,m,swift}'
 
-  s.resources = "ImagePicker/**/*.{png,jpeg,jpg,storyboard,xib}"
+  s.resources = "AKImagePickerController/**/*.{png,jpeg,jpg,storyboard,xib}"
   s.requires_arc = true
 
 end
