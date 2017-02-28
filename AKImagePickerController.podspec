@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AKImagePickerController"
-  s.version      = "1.0.8"
+  s.version      = "1.1.0"
   s.summary      = "A short description of AKImagePickerController."
 
   s.description  = "This is an ImagePickerController"
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'AKImagePickerController/**/*.{h,m,swift}'
 
   s.resources = "AKImagePickerController/**/*.{png,jpeg,jpg,storyboard,xib,Images.xcassets}"
-  s.resource_bundle = {"Images" => ["Images.xcassets"]}
+  s.resource_bundle = {["Images.xcassets"]}
 
   s.requires_arc = true
 
