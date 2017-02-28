@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #
 
   s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController", :tag => s.version }
-  # "#{s.version}"
+  # "#{s.version}" was
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
