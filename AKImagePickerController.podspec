@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "10.0"
 
-  s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController.git", :tag => "1.0.2" }
+  s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController.git", :tag => s.version }
 
   s.source_files  = 'ImagePicker/**/*.{h,m,swift}'
 
