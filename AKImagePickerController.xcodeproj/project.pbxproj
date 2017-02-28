@@ -218,7 +218,7 @@
 		A602BB971E5ECFB4003713E9 = {
 			isa = PBXGroup;
 			children = (
-				A602BBA31E5ECFB4003713E9 /* ImagePicker */,
+				A602BBA31E5ECFB4003713E9 /* AKImagePickerController */,
 				A602BBEE1E5EDF66003713E9 /* ImagePickerExample */,
 				A602BBA21E5ECFB4003713E9 /* Products */,
 			);
@@ -233,7 +233,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A602BBA31E5ECFB4003713E9 /* ImagePicker */ = {
+		A602BBA31E5ECFB4003713E9 /* AKImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
 				A602BC081E5EE1ED003713E9 /* ImagePickerGroup */,
@@ -245,7 +245,7 @@
 				A602BBA41E5ECFB4003713E9 /* AKImagePickerController.h */,
 				A602BBA51E5ECFB4003713E9 /* Info.plist */,
 			);
-			path = ImagePicker;
+			path = AKImagePickerController;
 			sourceTree = "<group>";
 		};
 		A602BBAC1E5ED9C5003713E9 /* CemaraGroup */ = {
@@ -1083,7 +1083,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ImagePicker/Info.plist;
+				INFOPLIST_FILE = AKImagePickerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1105,7 +1105,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ImagePicker/Info.plist;
+				INFOPLIST_FILE = AKImagePickerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
