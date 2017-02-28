@@ -20,8 +20,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'AKImagePickerController/**/*.{h,m,swift}'
 
-  s.resources = "AKImagePickerController/**/*.{png,jpeg,jpg,storyboard,xib,Images.xcassets}"
-  s.resource_bundle = {["Images.xcassets"]}
+  s.resources = "AKImagePickerController/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 
   s.requires_arc = true
 
