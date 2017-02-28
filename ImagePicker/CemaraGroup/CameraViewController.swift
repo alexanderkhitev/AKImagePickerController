@@ -68,11 +68,14 @@ class CameraViewController: UIViewController {
     
     fileprivate let coreMotionManager = CMMotionManager()
     
-    // MARK: - Enums 
+    // MARK: - Orientation data
     
     fileprivate enum CurrentOrientation: String {
         case portrait, portraitUpsideDown, landscapeRight, landscapeLeft
     }
+    
+    fileprivate var isStartOrientationChanged = false
+    fileprivate var isStartOrientationPortrait = false
     
     // MARK: - Delegate
     
@@ -346,6 +349,9 @@ class CameraViewController: UIViewController {
                 self?.flashAutoButton.transform = transformRotation
                 self?.flashOnButton.transform = transformRotation
                 self?.flashOffButton.transform = transformRotation
+                
+                // for hidding animation
+                self?.isStartOrientationChanged = true
             }
             if UIDevice.current.orientation == .landscapeRight {
                 let transformRotation = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
@@ -355,6 +361,9 @@ class CameraViewController: UIViewController {
                 self?.flashAutoButton.transform = transformRotation
                 self?.flashOnButton.transform = transformRotation
                 self?.flashOffButton.transform = transformRotation
+                
+                // for hidding animation
+                self?.isStartOrientationChanged = true
             }
             
             if UIDevice.current.orientation == .portrait {
@@ -365,6 +374,9 @@ class CameraViewController: UIViewController {
                 self?.flashAutoButton.transform = transformRotation
                 self?.flashOnButton.transform = transformRotation
                 self?.flashOffButton.transform = transformRotation
+                
+                // for hidding animation
+                self?.isStartOrientationChanged = true
             }
             
             if UIDevice.current.orientation == .portraitUpsideDown {
@@ -375,6 +387,9 @@ class CameraViewController: UIViewController {
                 self?.flashAutoButton.transform = transformRotation
                 self?.flashOnButton.transform = transformRotation
                 self?.flashOffButton.transform = transformRotation
+                
+                // for hidding animation
+                self?.isStartOrientationChanged = true
             }
         }) { (completion) in
             
@@ -565,12 +580,21 @@ extension CameraViewController {
             
             
             DispatchQueue.main.async {
+                guard self != nil else { return }
                 self?.launchDismissActions()
+                
+                debugPrint("elf!.isStartOrientationChanged", self!.isStartOrientationChanged, "self!.isStartOrientationPortrait", self!.isStartOrientationPortrait)
+                
+                if self!.isStartOrientationChanged == false && self!.isStartOrientationPortrait {
+                    self?.hideAnimation(.portrait)
+                    return
+                }
+                
+                
                 self?.hideAnimation(currentOrientation)
             }
             self?.coreMotionManager.stopAccelerometerUpdates()
         }
-
     }
     
     fileprivate func addCameraLayer(_ orientation: UIDeviceOrientation) {
@@ -615,14 +639,12 @@ extension CameraViewController {
             debugPrint("portraitUpsideDown")
         default:
             debugPrint("default portrait")
+            isStartOrientationPortrait = true
         }
         
-        debugPrint("X", X, "Y", Y, "width", width, "height", height)
-
         cameraEngine.previewLayer.frame = CGRect(x: X, y: Y, width: width, height: height)
         cameraPreviewView.layer.addSublayer(cameraEngine.previewLayer)
     }
-    
     
     fileprivate func animateCameraView() {
         let widthValue = UIScreen.main.bounds.width
