@@ -295,9 +295,9 @@ extension AKImagePickerController {
     
     private func registerCollectionViewElements() {
         // cells
-        let photoNib = UINib(nibName: "ImagePickerCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.AKImageControllerPicker"))
+        let photoNib = UINib(nibName: "ImagePickerCollectionCell", bundle: Bundle(identifier: "org.cocoapods.AKImagePickerController"))
         previewPhotoCollectionView.register(photoNib, forCellWithReuseIdentifier: imagePickerCollectionCellIdentifier)
-        let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.AKImageControllerPicker"))
+        let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "org.cocoapods.AKImagePickerController"))
         previewPhotoCollectionView.register(liveNib, forCellWithReuseIdentifier: imagePickerLiveCameraCollectionCellIdentifier)
     }
     
