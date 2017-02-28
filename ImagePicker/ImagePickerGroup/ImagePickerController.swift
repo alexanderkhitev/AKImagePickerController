@@ -160,11 +160,7 @@ open class ImagePickerController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        // Camera
-        cameraEngine.rotationCamera = true
-        cameraEngine.currentDevice = .front
-        cameraEngine.sessionPresset = .photo
-        cameraEngine.startSession()
+        setupCameraEngineSettings()
         // UI
         addUIElements()
         // Collection view
@@ -187,6 +183,7 @@ open class ImagePickerController: UIViewController {
         checkPhotoLibraryAccess()
     }
     
+    // MARK: - Camera
   
     // MARK: - Actions
     
@@ -420,6 +417,15 @@ extension ImagePickerController: UIViewControllerTransitioningDelegate {
 // MARK: - Camera
 
 extension ImagePickerController {
+    
+    fileprivate func setupCameraEngineSettings() {
+        // Camera
+        cameraEngine.isRequestMicroAccess = false
+        cameraEngine.rotationCamera = true
+        cameraEngine.currentDevice = .front
+        cameraEngine.sessionPresset = .photo
+        cameraEngine.startSession()
+    }
     
     fileprivate func presentCameraController() {
         let cameraController = CameraViewController()

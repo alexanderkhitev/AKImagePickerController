@@ -101,6 +101,8 @@ public class CameraEngine: NSObject {
         }
     }
     
+    public var isRequestMicroAccess = false
+    
     public lazy var previewLayer: AVCaptureVideoPreviewLayer! = {
         let layer =  AVCaptureVideoPreviewLayer(session: self.session)
         layer?.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -405,8 +407,10 @@ public class CameraEngine: NSObject {
             if let currentDevice = self.cameraDevice.currentDevice {
                 try self.cameraInput.configureInputCamera(self.session, device: currentDevice)
             }
-            if let micDevice = self.cameraDevice.micCameraDevice {
-                try self.cameraInput.configureInputMic(self.session, device: micDevice)
+            if isRequestMicroAccess {
+                if let micDevice = self.cameraDevice.micCameraDevice {
+                    try self.cameraInput.configureInputMic(self.session, device: micDevice)
+                }
             }
         }
         catch CameraEngineDeviceInputErrorType.unableToAddCamera {
