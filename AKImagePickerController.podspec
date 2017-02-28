@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController", :tag => s.version, :branch => "master" }
+  s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController", :tag => s.version.to_s, :branch => "master" }
   # "#{s.version}" was
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
