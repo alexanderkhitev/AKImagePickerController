@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AKImagePickerController"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "A short description of AKImagePickerController."
 
   s.description  = "This is an ImagePickerController"
