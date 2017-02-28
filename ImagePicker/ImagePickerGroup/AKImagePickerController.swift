@@ -18,7 +18,7 @@ public enum ImagePickerMediaType {
     case imageAndVideo
 }
 
-open class ImagePickerController: UIViewController {
+open class AKImagePickerController: UIViewController {
     
     fileprivate lazy var sheetController: SheetController = {
         let controller = SheetController(previewCollectionView: self.previewPhotoCollectionView)
@@ -66,7 +66,7 @@ open class ImagePickerController: UIViewController {
         return view
     }()
     
-    open var delegate: ImagePickerControllerDelegate?
+    open var delegate: AKImagePickerControllerDelegate?
     
     /// All the actions. The first action is shown at the top.
     open var actions: [ImagePickerAction] {
@@ -285,7 +285,7 @@ open class ImagePickerController: UIViewController {
 
 // MARK: - UICollection view 
 
-extension ImagePickerController {
+extension AKImagePickerController {
     
     fileprivate func setupCollectionViewSettings() {
         previewPhotoCollectionView.dataSource = self
@@ -295,9 +295,9 @@ extension ImagePickerController {
     
     private func registerCollectionViewElements() {
         // cells
-        let photoNib = UINib(nibName: "ImagePickerCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"))
+        let photoNib = UINib(nibName: "ImagePickerCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.AKImageControllerPicker"))
         previewPhotoCollectionView.register(photoNib, forCellWithReuseIdentifier: imagePickerCollectionCellIdentifier)
-        let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.ImageControllerPicker"))
+        let liveNib = UINib(nibName: "ImagePickerLiveCameraCollectionCell", bundle: Bundle(identifier: "com.alexsander-khitev.AKImageControllerPicker"))
         previewPhotoCollectionView.register(liveNib, forCellWithReuseIdentifier: imagePickerLiveCameraCollectionCellIdentifier)
     }
     
@@ -305,7 +305,7 @@ extension ImagePickerController {
 
 // MARK: - UICollectionViewDataSource
 
-extension ImagePickerController: UICollectionViewDataSource {
+extension AKImagePickerController: UICollectionViewDataSource {
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard fetchResult != nil else { return 1 }
@@ -334,7 +334,7 @@ extension ImagePickerController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 
-extension ImagePickerController: UICollectionViewDelegate {
+extension AKImagePickerController: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
@@ -361,7 +361,7 @@ extension ImagePickerController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension ImagePickerController: UICollectionViewDelegateFlowLayout {
+extension AKImagePickerController: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 95, height: 95)
@@ -376,7 +376,7 @@ extension ImagePickerController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UICollectionView cells 
 
-extension ImagePickerController {
+extension AKImagePickerController {
     
     fileprivate func imagePickerCollectionCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> ImagePickerCollectionCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePickerCollectionCellIdentifier, for: indexPath) as! ImagePickerCollectionCell
@@ -423,7 +423,7 @@ extension ImagePickerController {
 
 // MARK: - UIViewControllerTransitioningDelegate
 
-extension ImagePickerController: UIViewControllerTransitioningDelegate {
+extension AKImagePickerController: UIViewControllerTransitioningDelegate {
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return AnimationController(imagePickerSheetController: self, presenting: true)
@@ -437,7 +437,7 @@ extension ImagePickerController: UIViewControllerTransitioningDelegate {
 
 // MARK: - Camera
 
-extension ImagePickerController {
+extension AKImagePickerController {
     
     fileprivate func setupCameraEngineSettings() {
         // Camera
@@ -478,7 +478,7 @@ extension ImagePickerController {
 
 // MARK: - CameraViewControllerDelegate Delegate
 
-extension ImagePickerController: CameraViewControllerDelegate {
+extension AKImagePickerController: CameraViewControllerDelegate {
     
     func willHide() {
         returnCameraLayerToCell()
@@ -498,7 +498,7 @@ extension ImagePickerController: CameraViewControllerDelegate {
 
 // MARK: - Image picker
 
-extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AKImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     fileprivate func showPhotoLibraryController() {
         present(photoLibraryController, animated: true, completion: nil)
@@ -526,7 +526,7 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
 
 // MARK: - TOCropViewController Delegate 
 
-extension ImagePickerController: TOCropViewControllerDelegate {
+extension AKImagePickerController: TOCropViewControllerDelegate {
     
     public func cropViewController(_ cropViewController: TOCropViewController, didFinishCancelled cancelled: Bool) {
         cropViewController.dismiss(animated: true, completion: nil)
@@ -535,7 +535,7 @@ extension ImagePickerController: TOCropViewControllerDelegate {
     public func cropViewController(_ cropViewController: TOCropViewController, didCropToCircularImage image: UIImage, with cropRect: CGRect, angle: Int) {
         
         if delegate != nil {
-            delegate?.imagePickerController!(image, with: cropRect, angle: angle)
+            delegate?.akImagePickerController!(image, with: cropRect, angle: angle)
         }
         
         // TODO: - Think how to make it different
@@ -563,7 +563,7 @@ extension ImagePickerController: TOCropViewControllerDelegate {
     
 }
 
-extension ImagePickerController {
+extension AKImagePickerController {
     
     fileprivate func presentCropControllerFromCell(_ indexPath: IndexPath) {
         let asset = fetchResult[indexPath.row - 1]

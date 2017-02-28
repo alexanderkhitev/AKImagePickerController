@@ -9,17 +9,17 @@
 import Foundation
 import Photos
 
-@objc public protocol ImagePickerControllerDelegate {
+@objc public protocol AKImagePickerControllerDelegate {
     
-    @objc optional func controllerWillEnlargePreview(_ controller: ImagePickerController)
-    @objc optional func controllerDidEnlargePreview(_ controller: ImagePickerController)
+    @objc optional func controllerWillEnlargePreview(_ controller: AKImagePickerController)
+    @objc optional func controllerDidEnlargePreview(_ controller: AKImagePickerController)
     
-    @objc optional func controller(_ controller: ImagePickerController, willSelectAsset asset: PHAsset)
-    @objc optional func controller(_ controller: ImagePickerController, didSelectAsset asset: PHAsset)
+    @objc optional func controller(_ controller: AKImagePickerController, willSelectAsset asset: PHAsset)
+    @objc optional func controller(_ controller: AKImagePickerController, didSelectAsset asset: PHAsset)
     
-    @objc optional func controller(_ controller: ImagePickerController, willDeselectAsset asset: PHAsset)
-    @objc optional func controller(_ controller: ImagePickerController, didDeselectAsset asset: PHAsset)
+    @objc optional func controller(_ controller: AKImagePickerController, willDeselectAsset asset: PHAsset)
+    @objc optional func controller(_ controller: AKImagePickerController, didDeselectAsset asset: PHAsset)
     
-    @objc optional func imagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int)
+    @objc optional func akImagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int)
     
 }

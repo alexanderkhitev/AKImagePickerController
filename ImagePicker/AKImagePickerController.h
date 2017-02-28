@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 //! Project version number for ImagePicker.
-FOUNDATION_EXPORT double ImagePickerVersionNumber;
+FOUNDATION_EXPORT double AKImagePickerVersionNumber;
 
 //! Project version string for ImagePicker.
-FOUNDATION_EXPORT const unsigned char ImagePickerVersionString[];
+FOUNDATION_EXPORT const unsigned char AKImagePickerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ImagePicker/PublicHeader.h>
 

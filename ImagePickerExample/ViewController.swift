@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ImagePickerController
+import AKImagePickerController
 import Photos
 
 class ViewController: UIViewController {
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     func presentImagePickerSheet(_ gestureRecognizer: UITapGestureRecognizer) {
 
-        let imagePickerController = ImagePickerController(mediaType: .image)
+        let imagePickerController = AKImagePickerController(mediaType: .image)
         imagePickerController.delegate = self
         
 //        imagePickerController.addAction(ImagePickerAction(title: NSLocalizedString("Choose Photo", comment: "Action Title"), secondaryTitle: { NSString.localizedStringWithFormat(NSLocalizedString("ImagePickerSheet.button1.Send %lu Photo", comment: "Action Title") as NSString, $0) as String}, handler: { _ in
@@ -57,9 +57,9 @@ class ViewController: UIViewController {
 }
 
 // MARK: - ImagePickerSheetControllerDelegate
-extension ViewController: ImagePickerControllerDelegate {
+extension ViewController: AKImagePickerControllerDelegate {
 
-    func imagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int) {
+    func akImagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int) {
         debugPrint("imagePickerController", image, "cropRect", cropRect)
         avatarImageView.image = image 
     }
