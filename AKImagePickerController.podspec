@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/alexsanderkhitev/AKImagePickerController.git", :tag => "1.0.2" }
 
-  s.source_files  = 'AKImagePickerController/**/*.{h,m,swift}'
+  s.source_files  = 'ImagePicker/**/*.{h,m,swift}'
 
-  s.resources = "AKImagePickerController/**/*.{png,jpeg,jpg,storyboard,xib}"
+  s.resources = "ImagePicker/**/*.{png,jpeg,jpg,storyboard,xib}"
   s.requires_arc = true
 
 end
