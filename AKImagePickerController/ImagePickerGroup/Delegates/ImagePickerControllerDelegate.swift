@@ -11,15 +11,12 @@ import Photos
 
 @objc public protocol AKImagePickerControllerDelegate {
     
-    @objc optional func controllerWillEnlargePreview(_ controller: AKImagePickerController)
-    @objc optional func controllerDidEnlargePreview(_ controller: AKImagePickerController)
-    
-    @objc optional func controller(_ controller: AKImagePickerController, willSelectAsset asset: PHAsset)
-    @objc optional func controller(_ controller: AKImagePickerController, didSelectAsset asset: PHAsset)
-    
-    @objc optional func controller(_ controller: AKImagePickerController, willDeselectAsset asset: PHAsset)
-    @objc optional func controller(_ controller: AKImagePickerController, didDeselectAsset asset: PHAsset)
-    
     @objc optional func akImagePickerController(_ image: UIImage, with cropRect: CGRect, angle: Int)
+    
+    // MARK: - Lifecycle 
+    
+    @objc optional func akImagePickerControllerDidDisappear()
+    @objc optional func akImagePickerControllerWillDisappear()
+
     
 }

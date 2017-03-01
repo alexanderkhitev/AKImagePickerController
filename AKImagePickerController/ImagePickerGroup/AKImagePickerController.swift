@@ -183,6 +183,16 @@ open class AKImagePickerController: UIViewController {
         checkPhotoLibraryAccess()
     }
     
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.akImagePickerControllerWillDisappear?()
+    }
+    
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        delegate?.akImagePickerControllerDidDisappear?()
+    }
+    
     // MARK: - Camera
   
     // MARK: - Actions
